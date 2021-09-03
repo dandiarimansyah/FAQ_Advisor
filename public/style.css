@@ -2,7 +2,6 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(173, 218, 255);
 }
 
 #navbar {
@@ -57,4 +56,40 @@ body {
     padding: 5px 20px;
     cursor: pointer;
     font-weight: 700;
+}
+
+/*KATEGORI*/
+.judul_tabel{
+    display: flex;
+    align-items: center;
+}
+#input_kategori{
+    width: 400px;
+}
+#edit_item{
+    background-color: #1976D2;
+    font-size: 20px; 
+    color: white;
+    margin-right: 20px;
+}
+#edit_item:hover{
+    background-color: blue;
+    color: white;
+}
+#hapus_kategori{
+    background-color: #B71C1C;
+    font-size: 20px;
+    color: white;
+}
+#hapus_kategori:hover{
+    background-color: red;
+    color: white;
+}
+.flex{
+    display: flex;
+    gap:10px;
+    width: 50%;
+}
+.flex label{
+    width: 100px;
 }

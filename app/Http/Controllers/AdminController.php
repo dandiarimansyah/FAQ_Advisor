@@ -11,13 +11,4 @@ class AdminController extends Controller
         return view('index');
     }
 
-    public function pertanyaan()
-    {
-        return view('pertanyaan');
-    }
-
-    public function kategori()
-    {
-        return view('kategori');
-    }
 }
