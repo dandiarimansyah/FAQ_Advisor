@@ -1,0 +1,60 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(173, 218, 255);
+}
+
+#navbar {
+    display: flex;
+    background-color: rgb(49, 49, 49);
+    padding: 15px;
+    color: white;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-right: 35px;
+}
+
+#menu li {
+    list-style: none;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+}
+
+#menu li a:hover {
+    color: yellowgreen;
+}
+
+#pencarian {
+    background-color: rgb(131, 77, 61);
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    color: white;
+}
+
+#atas {
+    margin-bottom: 20px;
+}
+
+#form_search #search {
+    padding: 5px 10px;
+    width: 20rem;
+}
+
+#form_search button {
+    background-color: rgb(255, 234, 166);
+    padding: 5px 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
