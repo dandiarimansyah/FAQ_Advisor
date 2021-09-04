@@ -13,6 +13,6 @@ class Kategori extends Model
 
     public function pertanyaan()
     {
-        return $this->hasMany(Pertanyaan::class);
+        return $this->belongsToMany(Pertanyaan::class, 'faqs_kategori', 'kategori_id', 'faqs_id');
     }
 }

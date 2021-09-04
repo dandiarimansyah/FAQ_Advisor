@@ -24,7 +24,9 @@ Route::get('/', [AdminController::class, 'index']);
 /*PERTANYAAN*/
 Route::get('/pertanyaan', [PertanyaanController::class, 'tampilPertanyaan']);
 Route::get('/tambah_pertanyaan', [PertanyaanController::class, 'tampilTambahPertanyaan']);
-Route::get('/edit_pertanyaan', [PertanyaanController::class, 'tampilEditPertanyaan']);
+Route::post('/tambah_pertanyaan', [PertanyaanController::class, 'tambahPertanyaan']);
+Route::get('/edit_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'tampilEditPertanyaan']);
+Route::post('/edit_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'editPertanyaan']);
 Route::get('/hapus_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'hapusPertanyaan']);
 
 

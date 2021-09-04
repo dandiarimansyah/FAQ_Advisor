@@ -22,19 +22,26 @@
                 </div>
                 <div class="flex">
                 	<label for="kategori">Kategori</label>
-                	<div class="form-group mb-1">
-                		<select id="kategori" name="kategori" class="form-control py-3 bk-c mb-0">
-                            <option selected disabled value="">--- Pilih Kategori ---</option>
-                            <option>1</option>   
+                		<select id="kategori" name="kategori[]" multiple class="form-control">
+                            <option disabled value="">Untuk memilih lebih dari 1 kategori, tekan dan tahan tombol ctrl lalu klik kategori</option>
+                            @foreach ($kategori as $k)
+                                <option value="{{ $k->id }}">{{ $k->kategori }}</option>
+                            @endforeach
                         </select>
-                    </div>
                 </div>
-                <div class="form-group mt-4 mb-0">
-                    <a class="btn btn-danger" style="float: left;" href="/pertanyaan">Batal</a>
-                    <button class="btn btn-success" style="float: right;" type="submit">Simpan</button>
+                <div class="form-group mt-4 mb-0" style="text-align: center;">
+                    <a class="btn btn-danger" href="/pertanyaan">Batal</a>
+                    <button class="btn btn-success" type="submit">Simpan</button>
                 </div>
             </form>
         </div> 
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    {{-- <script type="text/javascript">
+     $(document).ready(function() {
+        $('#kategori').select2();
+     });
+    </script> --}}
 
 @endsection

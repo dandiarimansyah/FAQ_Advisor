@@ -6,7 +6,7 @@
     	<form method="post" action="">
     		@csrf
 	    	<input class="form-control" id="input_kategori" type="text" name="kategori" placeholder="Masukkan Nama Kategori" value="{{ old('kategori') }}" />
-			<div id="error">{{ $errors->first('kategori') }}</div>
+			   <div id="error" style="color: red">{{ $errors->first('kategori') }}</div>
 
 	        <button class="btn btn-primary pb-1 pt-1" type="submit">Tambah</button>
 	    </form>
@@ -61,7 +61,6 @@
                         <div class="form-group">
                             <label class="mb-1" for="nama">Nama Kategori</label>
                                 <input class="form-control py-3" id="nama" name="kategori" type="text" value="" />
-                                <div id="error">{{ $errors->first('kategori') }}</div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -83,26 +82,26 @@
             $('#nama').val(nama);
             $('#edit_form').attr('action', '/edit_kategori/' + id);
       })
-      // $(document).on('click', '#hapus_kategori', function(e){
-      //         e.preventDefault();
-      //         var link = $(this).attr('href');
+      $(document).on('click', '#hapus_kategori', function(e){
+              e.preventDefault();
+              var link = $(this).attr('href');
               
-      //         Swal.fire({
-      //             title: 'Yakin Dihapus?',
-      //             text: "Data Kategori Akan Di Hapus!",
-      //             icon: 'warning',
-      //             showCancelButton: true,
-      //             confirmButtonColor: '#d33',
-      //             cancelButtonColor: '#grey',
-      //             cancelButtonText: 'Batal',
-      //             confirmButtonText: 'Hapus',
-      //             reverseButtons: true
-      //             }).then((result) => {
-      //             if (result.isConfirmed) {
-      //                 window.location = link;
-      //             }
-      //         })
-      //     })
+              Swal.fire({
+                  title: 'Yakin Dihapus?',
+                  text: "Data Kategori Akan Dihapus!",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#d33',
+                  cancelButtonColor: '#grey',
+                  cancelButtonText: 'Batal',
+                  confirmButtonText: 'Hapus',
+                  reverseButtons: true
+                  }).then((result) => {
+                  if (result.isConfirmed) {
+                      window.location = link;
+                  }
+              })
+          })
     </script>
 
 @endsection
