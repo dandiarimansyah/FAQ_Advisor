@@ -18,7 +18,7 @@
 	            <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
 	                <thead>
 	                    <tr>
-	                        <th width="10%">No</th>
+	                        <th width="5%">No</th>
 	                        <th width="40%">Nama Kategori</th>
 	                        <th width="12%">Action</th>
 	                    </tr>

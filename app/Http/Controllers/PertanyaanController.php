@@ -14,7 +14,7 @@ class PertanyaanController extends Controller
 {
     public function tampilPertanyaan() {
 
-   		$pertanyaan = Pertanyaan::orderBy('created_at', 'desc')->get();
+   		$pertanyaan = Pertanyaan::orderBy('updated_at', 'desc')->get();
 
         return view('pertanyaan', compact('pertanyaan'));
     }
@@ -36,8 +36,6 @@ class PertanyaanController extends Controller
         $pertanyaan = new Pertanyaan();
         $pertanyaan->pertanyaan = $request->pertanyaan;
         $pertanyaan->jawaban = $request->jawaban;
-        $date = Carbon::today();
-        $pertanyaan->tanggal = Carbon::today();
 
         // dd($pertanyaan->pengarang());
         $pertanyaan->save();

@@ -30,7 +30,7 @@
                                     {{$kategori-> kategori}}  <br>
                                 @endforeach
                             </td>
-                            <td>{{ \Carbon\Carbon::parse($p->tanggal)->format('d-m-Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($p->updated_at)->format('d-m-Y') }}</td>
                             <td>
                             	<a href="{{ url('/edit_pertanyaan/'. $p->id) }}" id="edit_item">Edit
                                 </a>
