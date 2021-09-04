@@ -2,15 +2,22 @@ html,
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 #navbar {
     display: flex;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(0, 95, 158);
     padding: 15px;
     color: white;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#logo {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin-left: 20px;
 }
 
 #menu {
@@ -27,19 +34,21 @@ body {
 #menu li a {
     text-decoration: none;
     color: white;
-    font-size: 22px;
+    font-size: 25px;
+    font-weight: 600;
 }
 
 #menu li a:hover {
-    color: yellowgreen;
+    color: rgb(255, 243, 81);
 }
 
 #pencarian {
-    background-color: rgb(131, 77, 61);
+    border: 3px solid black;
     width: 100%;
     text-align: center;
     padding: 1rem 0;
-    color: white;
+    background-color: white;
+    border-radius: 10px;
 }
 
 #atas {
@@ -58,38 +67,118 @@ body {
     font-weight: 700;
 }
 
+.dalam-konten {
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(198, 244, 255, 0.795);
+}
+
 /*KATEGORI*/
-.judul_tabel{
-    display: flex;
-    align-items: center;
+.judul_tabel {
+    /* display: flex; */
+    /* align-items: center; */
+    text-align: left;
 }
-#input_kategori{
-    width: 400px;
+
+.judul_tabel h2 {
+    font-size: 26px;
+    /* background-color: rgb(255, 200, 148); */
+    padding: 7px 10px;
+    font-weight: 700;
 }
-#edit_item{
-    background-color: #1976D2;
-    font-size: 20px; 
-    color: white;
-    margin-right: 20px;
+
+.tabel tr {
+    text-align: center;
+    font-size: 17px;
 }
-#edit_item:hover{
-    background-color: blue;
-    color: white;
+
+.tabel_kategori {
+    width: 500px;
+    margin-left: 10px;
 }
-#hapus_kategori{
-    background-color: #B71C1C;
-    font-size: 20px;
-    color: white;
+
+#input_kategori {
+    width: 300px;
 }
-#hapus_kategori:hover{
+
+.tombol a {
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 5px;
+    color: white !important;
+}
+
+.tambah {
+    height: 36px;
+    width: 200px;
+    text-align: center;
+    align-self: center;
+    background-color: #018634;
+}
+
+.tambah:hover {
+    text-decoration: none;
+    background-color: #00c04a;
+}
+
+.edit {
+    background-color: #00478f;
+}
+.edit:hover {
+    background-color: rgb(2, 119, 173);
+}
+.hapus {
+    background-color: #b71c1c;
+}
+.hapus:hover {
+    text-decoration: none;
     background-color: red;
+}
+.back {
+    padding: 5px 25px;
+    font-size: 20px;
+    margin-left: 40px;
+    background-color: rgb(41, 41, 41);
     color: white;
+    border-radius: 5px;
 }
-.flex{
+
+.flex {
     display: flex;
-    gap:10px;
-    width: 60%;
+    gap: 10px;
+    /* width: 60%; */
 }
-.flex label{
-    width: 100px;
+
+.flex-center {
+    justify-content: center;
+}
+
+.flex label {
+    font-weight: 700;
+    width: 120px;
+}
+
+.tengah {
+    text-align: center;
+}
+
+.kotak {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.kotak h1 {
+    font-weight: bold;
+}
+
+.kotak-mini {
+    width: 95%;
+}
+
+.tambah-pertanyaan textarea {
+    width: 400px;
 }

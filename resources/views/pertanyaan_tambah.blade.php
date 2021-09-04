@@ -2,27 +2,33 @@
 
 @section('content')
 
-    <div>
-    	<h1>TAMBAH PERTANYAAN</h1>
-        <div class="card-body">
-            <form method="post" action="">
+        <h1 class="tengah">
+            <strong>
+                TAMBAH PERTANYAAN
+            </strong>
+        </h1>
+
+        <a href="/pertanyaan" class="back">Kembali</a>
+
+        <div class="kotak kotak-mini">
+
+            <form class="tambah-pertanyaan" method="post" action="">
                 @csrf
-                <a href="/pertanyaan" >Kembali</a>
                 <div class="flex">
                 	<label for="pertanyaan">Pertanyaan</label>
                 	<div class="form-group mb-1">
-                        <textarea class="form-control py-3" id="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value="{{ old('pertanyaan') }}"> </textarea>
+                        <textarea id="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value="{{ old('pertanyaan') }}"> </textarea>
                     </div>
                 </div>
                 <div class="flex">
                 	<label for="jawaban">Jawaban</label>
                 	<div class="form-group mb-1">
-                        <textarea class="form-control py-3" id="jawaban" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="{{ old('jawaban') }}"> </textarea>
+                        <textarea id="jawaban" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="{{ old('jawaban') }}"> </textarea>
                     </div>
                 </div>
                 <div class="flex">
                 	<label for="kategori">Kategori</label>
-                		<select id="kategori" name="kategori[]" multiple class="form-control">
+                		<select id="kategori" name="kategori[]" multiple class="">
                             <option disabled value="">Untuk memilih lebih dari 1 kategori, tekan dan tahan tombol ctrl lalu klik kategori</option>
                             @foreach ($kategori as $k)
                                 <option value="{{ $k->id }}">{{ $k->kategori }}</option>
@@ -35,7 +41,7 @@
                 </div>
             </form>
         </div> 
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     {{-- <script type="text/javascript">

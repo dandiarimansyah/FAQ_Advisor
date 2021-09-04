@@ -2,40 +2,44 @@
 
 @section('content')
 
-    <div>
-        <h1>EDIT PERTANYAAN</h1>
-        <div class="card-body">
-            <form method="post" action="">
-                @csrf
-                <a href="/pertanyaan" >Kembali</a>
-                <div class="flex">
-                	<label for="pertanyaan">Pertanyaan</label>
-                	<div class="form-group mb-1">
-                        <textarea class="form-control" id="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value=""> {{ $pertanyaan->pertanyaan }} </textarea>
-                    </div>
+    <h1 class="tengah">
+        <strong>
+            EDIT PERTANYAAN
+        </strong>
+    </h1>
+
+    <a href="/pertanyaan" class="back">Kembali</a>
+
+    <div class="kotak kotak-mini">
+        <form class="tambah-pertanyaan" method="post" action="">
+            @csrf
+            <div class="flex">
+                <label for="pertanyaan">Pertanyaan</label>
+                <div class="form-group mb-1">
+                    <textarea id="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value=""> {{ $pertanyaan->pertanyaan }} </textarea>
                 </div>
-                <div class="flex">
-                	<label for="jawaban">Jawaban</label>
-                	<div class="form-group mb-1">
-                        <textarea class="form-control" id="jawaban" type="text" name="jawaban" placeholder="Masukkan Jawaban" value=""> {{ $pertanyaan->jawaban }} </textarea>
-                    </div>
+            </div>
+            <div class="flex">
+                <label for="jawaban">Jawaban</label>
+                <div class="form-group mb-1">
+                    <textarea id="jawaban" type="text" name="jawaban" placeholder="Masukkan Jawaban" value=""> {{ $pertanyaan->jawaban }} </textarea>
                 </div>
-                <div class="flex">
-                	<label for="kategori">Kategori</label>
-                	<div class="form-group mb-1">
-                		<select id="kategori" name="kategori[]" multiple style="width: 100%">
-                            <option disabled value="">--- Untuk memilih lebih dari 1 kategori, tekan dan tahan tombol ctrl lalu klik kategori ---</option>
-                            @foreach ($kategori as $k)
-                                <option id="{{ $k->id }}" class="pilih_kategori" value="{{ $k->id }}">{{ $k->kategori }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+            </div>
+            <div class="flex">
+                <label for="kategori">Kategori</label>
+                <div class="form-group mb-1">
+                    <select id="kategori" name="kategori[]" multiple style="width: 100%">
+                        <option disabled value="">--- Untuk memilih lebih dari 1 kategori, tekan dan tahan tombol ctrl lalu klik kategori ---</option>
+                        @foreach ($kategori as $k)
+                            <option id="{{ $k->id }}" class="pilih_kategori" value="{{ $k->id }}">{{ $k->kategori }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <div class="form-group mt-4 mb-0" style="text-align: center;">
-                    <button class="btn btn-success" type="submit">Simpan Perubahan</button>
-                </div>
-            </form>
-        </div> 
+            </div>
+            <div class="form-group mt-4 mb-0" style="text-align: center;">
+                <button class="btn btn-success" type="submit">Simpan Perubahan</button>
+            </div>
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>

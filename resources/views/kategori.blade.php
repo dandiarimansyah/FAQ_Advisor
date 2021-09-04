@@ -1,49 +1,70 @@
 @extends('partial')
 
 @section('content')
+    
+    <h1 class="tengah">
+        <strong>
+            DATA KATEGORI
+        </strong>
+    </h1>
+    
+    <div class="kotak kotak-mini">
 
-    <div>
-    	<form method="post" action="">
-    		@csrf
-	    	<input class="form-control" id="input_kategori" type="text" name="kategori" placeholder="Masukkan Nama Kategori" value="{{ old('kategori') }}" />
-			   <div id="error" style="color: red">{{ $errors->first('kategori') }}</div>
-
-	        <button class="btn btn-primary pb-1 pt-1" type="submit">Tambah</button>
-	    </form>
+        {{-- Tambah Kategori --}}
         <div class="judul_tabel">
-        	<h1>DAFTAR KATEGORI</h1>	
+            <h2>TAMBAH KATEGORI</h2>	
         </div>
-	    <div class="card-body">
-	        <div class="table-responsive">
-	            <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
-	                <thead>
-	                    <tr>
-	                        <th width="5%">No</th>
-	                        <th width="40%">Nama Kategori</th>
-	                        <th width="12%">Action</th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                	@foreach ($kategori as $k)
+
+        <form method="post" action="">
+            @csrf
+            <div class="flex ml-3">
+                <input class="form-control" id="input_kategori" type="text" name="kategori" placeholder="Masukkan Nama Kategori" value="{{ old('kategori') }}" />
+                <div id="error" style="color: red">{{ $errors->first('kategori') }}</div>
+                
+                <button class="btn btn-primary pb-1 pt-1" type="submit">Tambah</button>
+            </div>
+        </form>
+
+        {{-- Daftar Kategori --}}
+        <div class="judul_tabel">
+            <h2 class="mt-5">DAFTAR KATEGORI</h2>	
+        </div>
+        <div class="tabel tabel_kategori">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Kategori</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($kategori as $k)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $k->kategori }}</td>
-                            <td>
-                            	<a style="cursor:pointer;margin-left: 44px" id="edit_item" 
-                                    data-toggle="modal" 
-                                    data-target="#edit-modal"
-                                    data-id="{{ $k->id }}"
-                                    data-nama="{{ $k->kategori }}">
-                                    Edit
-                                </a>
-                                <a href="{{ url('/hapus_kategori/' . $k->id) }}"  data-toggle="tooltip" id="hapus_kategori">Hapus</a>
+                            <td class="flex flex-center tombol">
+                                <a class="edit" 
+                                data-toggle="modal" 
+                                data-target="#edit-modal"
+                                data-id="{{ $k->id }}"
+                                data-nama="{{ $k->kategori }}">
+                                Edit
+                            </a>
+                            <a href="{{ url('/hapus_kategori/' . $k->id) }}"  data-toggle="tooltip" class="hapus">Hapus</a>
                             </td>
                         </tr>
-                        @endforeach
-	                </tbody>
-	            </table>
-	        </div>
-	    </div>
+                    @empty
+                        <tr style="text-align: center">
+                            <td colspan="10">Tidak ada Data</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        {{-- Modal Edit --}}
+
 	    <div class="modal fade" id="edit-modal">
         <div id="modal-edit" class="modal-dialog modal-dialog-centered" role="document">
         <div id="modal-content" class="modal-content">

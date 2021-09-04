@@ -2,46 +2,57 @@
 
 @section('content')
 
-    <div>
-        <a href="/tambah_pertanyaan" id="edit_item">Tambah</a>
-        
-        <h1>DAFTAR PERTANYAAN</h1>
-        <div class="card-body">
-	        <div class="table-responsive">
-	            <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
-	                <thead>                	
-	                    <tr>
-	                        <th width="2%">No</th>
-	                        <th width="20%">Pertanyaan</th>
-	                        <th width="20%">Jawaban</th>
-	                        <th width="10%">Kategori</th>
-	                        <th width="9%">Tanggal Dibuat</th>
-	                        <th width="8%">Action</th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                	@foreach ($pertanyaan as $p)
+    <h1 class="tengah">
+        <strong>
+            DATA PERTANYAAN JAWABAN
+        </strong>
+    </h1>
+
+    <div class="kotak kotak-mini">
+
+        <div class="judul_tabel tombol flex mb-2" style="justify-content: space-between">
+            <h2>DAFTAR PERTANYAAN</h2>
+            <a href="/tambah_pertanyaan" class="tambah">Tambah Pertanyaan</a>
+        </div>
+
+        <div class="tabel">
+            <table class="table table-bordered table-striped" width="100%" cellspacing="0">
+                <thead>                	
+                    <tr>
+                        <th width="2%">No</th>
+                        <th width="20%">Pertanyaan</th>
+                        <th width="20%">Jawaban</th>
+                        <th width="10%">Kategori</th>
+                        <th width="9%">Tanggal Dibuat</th>
+                        <th width="8%">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($pertanyaan as $p)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $p-> pertanyaan }}</td>
                             <td>{{ $p-> jawaban }}</td>
                             <td>
-                            	@foreach ($p->kategori as $kategori)
+                                @foreach ($p->kategori as $kategori)
                                     {{$kategori-> kategori}}  <br>
                                 @endforeach
                             </td>
                             <td>{{ \Carbon\Carbon::parse($p->updated_at)->format('d-m-Y') }}</td>
-                            <td>
-                            	<a href="{{ url('/edit_pertanyaan/'. $p->id) }}" id="edit_item">Edit
+                            <td class="tombol flex">
+                                <a href="{{ url('/edit_pertanyaan/'. $p->id) }}" class="edit">Edit
                                 </a>
-                                <a href="{{ url('/hapus_pertanyaan/'. $p->id) }}" data-toggle="tooltip" id="hapus_kategori">Hapus</a>
-                          	</td>
+                                <a href="{{ url('/hapus_pertanyaan/'. $p->id) }}" data-toggle="tooltip" class="hapus">Hapus</a>
+                            </td>
                         </tr>
-                        @endforeach
-	                </tbody>
-	            </table>
-	        </div>
-	    </div>
+                    @empty
+                        <tr style="text-align: center">
+                            <td colspan="10">Tidak ada Data</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
     
 	<script type="text/javascript">

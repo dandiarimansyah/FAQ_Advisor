@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="navbar">
-        <div>
+        <div id="logo">
             <h1>SWIMPRO</h1>
         </div>
         <div id="menu">
@@ -32,6 +32,7 @@
     <div class="dalam-konten">
         @yield('content')
     </div>
+    
     <script src="{{ asset('sweetalert2/sweetalert2.min.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
