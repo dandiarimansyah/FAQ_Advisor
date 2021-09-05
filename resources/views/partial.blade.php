@@ -16,6 +16,11 @@
     <meta name="_token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert2/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+
+    {{-- Multiple Select --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
 </head>
 <body>
     <div id="navbar">
@@ -33,7 +38,6 @@
         @yield('content')
     </div>
     
-    <script src="{{ asset('sweetalert2/sweetalert2.min.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
@@ -41,5 +45,8 @@
             var table = $('#datatable').DataTable();
         })
     </script>
+
+    @stack('scripts')
+
 </body>
 </html>

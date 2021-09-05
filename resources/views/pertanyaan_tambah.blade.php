@@ -28,12 +28,14 @@
                 </div>
                 <div class="flex">
                 	<label for="kategori">Kategori</label>
-                		<select id="kategori" name="kategori[]" multiple class="">
-                            <option disabled value="">Untuk memilih lebih dari 1 kategori, tekan dan tahan tombol ctrl lalu klik kategori</option>
+
+                    <div class="form-group">
+                        <select name="kategori[]" class="mul-select" multiple="true">
                             @foreach ($kategori as $k)
                                 <option value="{{ $k->id }}">{{ $k->kategori }}</option>
                             @endforeach
                         </select>
+                    </div> 
                 </div>
                 <div class="form-group mt-4 mb-0" style="text-align: center;">
                     <a class="btn btn-danger" href="/pertanyaan">Batal</a>
@@ -42,12 +44,17 @@
             </form>
         </div> 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
-    {{-- <script type="text/javascript">
-     $(document).ready(function() {
-        $('#kategori').select2();
-     });
-    </script> --}}
+        @push('scripts')
+            <script>
+                $(document).ready(function(){
+                    $(".mul-select").select2({
+                    width: "400px",
+                    placeholder: "Pilih Kategori",
+                    tags: true,
+                    tokenSeparators: ['/',',',';'," "] 
+                });
+            })
+            </script>
+        @endpush
 
 @endsection

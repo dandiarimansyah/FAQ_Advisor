@@ -10,13 +10,13 @@
 
     <div class="kotak kotak-mini">
 
-        <div class="judul_tabel tombol flex mb-2" style="justify-content: space-between">
+        <div class="judul_tabel tombol mb-2" style="text-align: center">
             <h2>DAFTAR PERTANYAAN</h2>
             <a href="/tambah_pertanyaan" class="tambah">Tambah Pertanyaan</a>
         </div>
 
         <div class="tabel">
-            <table class="table table-bordered table-striped" width="100%" cellspacing="0">
+            <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                 <thead>                	
                     <tr>
                         <th width="2%">No</th>
