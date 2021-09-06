@@ -73,11 +73,12 @@ body {
     background-color: rgba(198, 244, 255, 0.795);
 }
 
-/*KATEGORI*/
+/*----------- KATEGORI -----------*/
+
 .judul_tabel {
     /* display: flex; */
     /* align-items: center; */
-    text-align: left;
+    text-align: center;
 }
 
 .judul_tabel h2 {
@@ -92,9 +93,14 @@ body {
     font-size: 17px;
 }
 
+#tabel_pertanyaan {
+    background-color: rgb(224, 224, 224);
+    padding: 20px;
+}
+
 .tabel_kategori {
+    margin: 20px auto;
     width: 500px;
-    margin-left: 10px;
 }
 
 #input_kategori {
@@ -110,23 +116,34 @@ body {
 }
 
 .tambah {
-    height: 36px;
-    width: 200px;
+    padding: 8px 15px !important;
+    margin: 0 10px;
+    width: 200px !important;
     text-align: center;
     align-self: center;
-    background-color: #018634;
+    background-color: #015c86;
 }
 
 .tambah:hover {
     text-decoration: none;
-    background-color: #00c04a;
+    background-color: #007ab3;
 }
 
-.edit {
+#import {
+    background-color: #018634;
+}
+
+.lihat {
     background-color: #00478f;
 }
-.edit:hover {
+.lihat:hover {
     background-color: rgb(2, 119, 173);
+}
+.edit {
+    background-color: #008f48;
+}
+.edit:hover {
+    background-color: rgb(0, 218, 54);
 }
 .hapus {
     background-color: #b71c1c;
@@ -139,9 +156,15 @@ body {
     padding: 5px 25px;
     font-size: 20px;
     margin-left: 40px;
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(0, 0, 0);
     color: white;
     border-radius: 5px;
+}
+
+.back:hover {
+    color: white;
+    background-color: rgb(58, 58, 58);
+    text-decoration: none;
 }
 
 .flex {
@@ -179,6 +202,12 @@ body {
     width: 95%;
 }
 
-.tambah-pertanyaan textarea {
-    width: 400px;
+.tambah-pertanyaan #pertanyaan {
+    width: 700px;
+    height: 65px;
+}
+
+.tambah-pertanyaan #jawaban {
+    width: 700px;
+    height: 180px;
 }

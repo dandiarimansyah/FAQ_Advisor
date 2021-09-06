@@ -17,7 +17,7 @@
 
         <form method="post" action="">
             @csrf
-            <div class="flex ml-3">
+            <div class="flex flex-center mt-3">
                 <input class="form-control" id="input_kategori" type="text" name="kategori" placeholder="Masukkan Nama Kategori" value="{{ old('kategori') }}" />
                 <div id="error" style="color: red">{{ $errors->first('kategori') }}</div>
                 
@@ -44,7 +44,8 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $k->kategori }}</td>
                             <td class="flex flex-center tombol">
-                                <a class="edit" 
+                                <a class="edit"
+                                id="edit_item"
                                 data-toggle="modal" 
                                 data-target="#edit-modal"
                                 data-id="{{ $k->id }}"
@@ -79,15 +80,14 @@
                     <div class="form">
                         <form id="edit_form" action="" method="POST">
                             @csrf                          
-                        <div class="form-group">
-                            <label class="mb-1" for="nama">Nama Kategori</label>
+                            <div class="form-group">
+                                <label class="mb-1" for="nama">Nama Kategori</label>
                                 <input class="form-control py-3" id="nama" name="kategori" type="text" value="" />
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                        </div>
-                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
                         </form>
                     </div>
                 </div>

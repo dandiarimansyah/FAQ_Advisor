@@ -23,6 +23,7 @@ Route::get('/', [AdminController::class, 'index']);
 
 /*PERTANYAAN*/
 Route::get('/pertanyaan', [PertanyaanController::class, 'tampilPertanyaan']);
+Route::get('/lihat_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'tampilLihatPertanyaan']);
 Route::get('/tambah_pertanyaan', [PertanyaanController::class, 'tampilTambahPertanyaan']);
 Route::post('/tambah_pertanyaan', [PertanyaanController::class, 'tambahPertanyaan']);
 Route::get('/edit_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'tampilEditPertanyaan']);

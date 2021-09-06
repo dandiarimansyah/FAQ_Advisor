@@ -12,27 +12,38 @@ use Illuminate\Support\Facades\DB;
 
 class PertanyaanController extends Controller
 {
-    public function tampilPertanyaan() {
+    public function tampilPertanyaan()
+    {
 
-   		$pertanyaan = Pertanyaan::orderBy('updated_at', 'desc')->get();
+        $pertanyaan = Pertanyaan::orderBy('updated_at', 'desc')->get();
 
         return view('pertanyaan', compact('pertanyaan'));
     }
 
-    public function tampilTambahPertanyaan() {
+    public function tampilLihatPertanyaan($idpertanyaan)
+    {
+
+        $pertanyaan = Pertanyaan::find($idpertanyaan);
+        $kategori_terpilih = $pertanyaan->kategori;
+
+        return view('pertanyaan_lihat', compact('pertanyaan', 'kategori_terpilih'));
+    }
+
+    public function tampilTambahPertanyaan()
+    {
 
         $kategori = Kategori::all();
 
-    	return view('pertanyaan_tambah', compact('kategori'));
+        return view('pertanyaan_tambah', compact('kategori'));
     }
 
-    public function tambahPertanyaan(Request $request) 
+    public function tambahPertanyaan(Request $request)
     {
         $request->validate([
-        'pertanyaan' => 'required',
-        'jawaban' => 'required',
+            'pertanyaan' => 'required',
+            'jawaban' => 'required',
         ]);
-          // dd($request->kategori);
+        // dd($request->kategori);
         $pertanyaan = new Pertanyaan();
         $pertanyaan->pertanyaan = $request->pertanyaan;
         $pertanyaan->jawaban = $request->jawaban;
@@ -43,31 +54,32 @@ class PertanyaanController extends Controller
         return redirect('/pertanyaan');
     }
 
-    public function tampilEditPertanyaan($idpertanyaan) {
-
+    public function tampilEditPertanyaan($idpertanyaan)
+    {
         $pertanyaan = Pertanyaan::find($idpertanyaan);
-        $kategori= Kategori::all();
-        $namaka = $pertanyaan->kategori;
+        $kategori = Kategori::all();
+        $kategori_terpilih = $pertanyaan->kategori;
 
-        $kategori2 = DB::table('faqs_kategori')->where('faqs_id',$idpertanyaan)->get();
-        $array = array();
-        foreach ($kategori2 as $key => $k) {
-            $array[] = $k->kategori_id;
-        }
-        $semuakategori = Kategori::whereIn('id', $array)->get('id');
-        // dd($semuapertanyaan);
-        return view('pertanyaan_edit', compact('pertanyaan','kategori', 'namaka', 'kategori2', 'semuakategori'));
+        // $pivot = DB::table('faqs_kategori')->where('faqs_id', $idpertanyaan)->get();
+        // $array = array();
+        // foreach ($pivot as $key => $k) {
+        //     $array[] = $k->kategori_id;
+        // }
+
+        // $kategories = Kategori::whereIn('id', $array)->get();
+
+        return view('pertanyaan_edit', compact('pertanyaan', 'kategori', 'kategori_terpilih'));
     }
 
     public function editPertanyaan(Request $request, $idpertanyaan)
-    {   
+    {
         $request->validate([
-        'pertanyaan' => 'required',
-        'jawaban' => 'required',
+            'pertanyaan' => 'required',
+            'jawaban' => 'required',
         ]);
 
         // dd($request->all());
-        
+
         $pertanyaan = Pertanyaan::where('id', $idpertanyaan)
             ->update([
                 'pertanyaan' => $request->get('pertanyaan'),
@@ -81,12 +93,13 @@ class PertanyaanController extends Controller
         return redirect('/pertanyaan');
     }
 
-    public function hapusPertanyaan($idpertanyaan) {
-    	$pertanyaan = Pertanyaan::find($idpertanyaan);
-    	if ($pertanyaan) {
-    		$pertanyaan->delete();
-    	}
+    public function hapusPertanyaan($idpertanyaan)
+    {
+        $pertanyaan = Pertanyaan::find($idpertanyaan);
+        if ($pertanyaan) {
+            $pertanyaan->delete();
+        }
 
-    	return back();
+        return back();
     }
 }

@@ -10,9 +10,9 @@
 
     <div class="kotak kotak-mini">
 
-        <div class="judul_tabel tombol mb-2" style="text-align: center">
-            <h2>DAFTAR PERTANYAAN</h2>
+        <div id="tabel_pertanyaan" class="judul_tabel tombol mb-2">
             <a href="/tambah_pertanyaan" class="tambah">Tambah Pertanyaan</a>
+            <a href="" class="tambah" id="import">Import Excel</a>
         </div>
 
         <div class="tabel">
@@ -32,16 +32,16 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $p-> pertanyaan }}</td>
-                            <td>{{ $p-> jawaban }}</td>
+                            <td style="text-align: justify">{{ substr($p->jawaban, 0, 80) }} ....</td>
                             <td>
                                 @foreach ($p->kategori as $kategori)
                                     {{$kategori-> kategori}}  <br>
                                 @endforeach
                             </td>
                             <td>{{ \Carbon\Carbon::parse($p->updated_at)->format('d-m-Y') }}</td>
-                            <td class="tombol flex">
-                                <a href="{{ url('/edit_pertanyaan/'. $p->id) }}" class="edit">Edit
-                                </a>
+                            <td class="tombol flex flex-center">
+                                <a href="{{ url('/lihat_pertanyaan/'. $p->id) }}" class="lihat">Lihat</a>
+                                <a href="{{ url('/edit_pertanyaan/'. $p->id) }}" class="edit">Edit</a>
                                 <a href="{{ url('/hapus_pertanyaan/'. $p->id) }}" data-toggle="tooltip" class="hapus">Hapus</a>
                             </td>
                         </tr>
