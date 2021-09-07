@@ -213,22 +213,42 @@ body {
 }
 
 /*INDEX*/
-#kumpulan_faqs{
-    margin-top: 20px;
-    width: 65%;
+#kumpulan_faqs {
+    margin: 20px auto;
+    width: 85%;
     text-align: justify;
     padding: 10px;
 }
-#tampil_pertanyaan{
-    border: 1px solid #B0BEC5;
-    border-radius: 2px;
-    background-color: #B0BEC5;
+
+#setiap_faqs {
+    border: 2px solid rgb(63, 63, 63);
+    margin-bottom: 15px;
+}
+
+#tampil_pertanyaan {
+    background-color: rgb(255, 243, 225);
     padding: 5px;
 }
-#tampil_jawaban{
-    border: 1px solid #CFD8DC;
-    margin-bottom: 10px;
-    border-radius: 2px;
-    background-color: #CFD8DC;
+
+#tampil_pertanyaan h6 {
+    color: brown;
+}
+
+#tampil_jawaban {
+    background-color: #ffffff;
     padding: 10px;
-}    
+}
+
+#selengkapnya {
+    margin: 0 auto;
+    text-align: center;
+    padding: 4px;
+}
+
+#selengkapnya a {
+    background-color: rgb(27, 99, 255);
+    padding: 5px 545px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
