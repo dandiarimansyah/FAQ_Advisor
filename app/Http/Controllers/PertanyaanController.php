@@ -51,7 +51,7 @@ class PertanyaanController extends Controller
         // dd($pertanyaan->pengarang());
         $pertanyaan->save();
         $pertanyaan->kategori()->sync($request->kategori);
-        return redirect('/pertanyaan');
+        return redirect('/admin/faq');
     }
 
     public function tampilEditPertanyaan($idpertanyaan)
@@ -90,7 +90,7 @@ class PertanyaanController extends Controller
         $pertanyaan2 = Pertanyaan::find($idpertanyaan);
         $pertanyaan2->kategori()->sync($request->kategori);
 
-        return redirect('/pertanyaan');
+        return redirect('/admin/faq');
     }
 
     public function hapusPertanyaan($idpertanyaan)

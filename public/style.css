@@ -209,12 +209,12 @@ body {
     width: 95%;
 }
 
-.tambah-pertanyaan #pertanyaan {
+.tambah-pertanyaan .pertanyaan {
     width: 700px;
     height: 65px;
 }
 
-.tambah-pertanyaan #jawaban {
+.tambah-pertanyaan .jawaban {
     width: 700px;
     height: 180px;
 }

@@ -7,18 +7,18 @@ use App\Models\Kategori;
 
 class KategoriController extends Controller
 {
-    public function tampilKategori()
-    {
-        // SELECT * FROM Kategori
-        $kategori = Kategori::orderBy('created_at', 'desc')->get();
-        
-        return view('kategori', compact('kategori'));
-    }
+	public function tampilKategori()
+	{
+		// SELECT * FROM Kategori
+		$kategori = Kategori::orderBy('created_at', 'desc')->get();
 
-    public function tambahKategori(Request $request)
+		return view('kategori', compact('kategori'));
+	}
+
+	public function tambahKategori(Request $request)
 	{
 		$request->validate([
-	    'kategori' => 'required|unique:App\Models\Kategori,kategori',
+			'kategori' => 'required|unique:App\Models\Kategori,kategori',
 		]);
 
 		$kategori = new Kategori();
@@ -30,23 +30,24 @@ class KategoriController extends Controller
 
 	public function editKategori(Request $request, $idkategori)
 	{
-		
+
 		$request->validate([
-	    'kategori' => 'required',
+			'kategori' => 'required',
 		]);
 		$kategori = Kategori::where('id', $idkategori)
-            ->update([
-                'kategori' => $request->get('kategori'),
-            ]);
-		return redirect('/kategori');
+			->update([
+				'kategori' => $request->get('kategori'),
+			]);
+		return redirect('/admin/kategori');
 	}
 
-	public function hapusKategori($idkategori) {
-    	$kategori = Kategori::find($idkategori);
-    	if ($kategori) {
-    		$kategori->delete();
-    	}
+	public function hapusKategori($idkategori)
+	{
+		$kategori = Kategori::find($idkategori);
+		if ($kategori) {
+			$kategori->delete();
+		}
 
-    	return back();
-    }
+		return back();
+	}
 }

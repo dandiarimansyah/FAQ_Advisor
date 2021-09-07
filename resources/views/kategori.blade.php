@@ -95,34 +95,37 @@
         </div>
         </div>
     </div>
-    </div>
-    <script type="text/javascript">
-      $(document).on('click','#edit_item',function(){
-            let nama = $(this).data('nama');
-            let id = $(this).data('id');
-            $('#nama').val(nama);
-            $('#edit_form').attr('action', '/admin/edit_kategori/' + id);
-      })
-      $(document).on('click', '#hapus_kategori', function(e){
-              e.preventDefault();
-              var link = $(this).attr('href');
-              
-              Swal.fire({
-                  title: 'Yakin Dihapus?',
-                  text: "Data Kategori Akan Dihapus!",
-                  icon: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#d33',
-                  cancelButtonColor: '#grey',
-                  cancelButtonText: 'Batal',
-                  confirmButtonText: 'Hapus',
-                  reverseButtons: true
-                  }).then((result) => {
-                  if (result.isConfirmed) {
-                      window.location = link;
-                  }
-              })
-          })
-    </script>
+    </div>  
 
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(document).on('click','#edit_item',function(){
+              let nama = $(this).data('nama');
+              let id = $(this).data('id');
+              $('#nama').val(nama);
+              $('#edit_form').attr('action', '/admin/edit_kategori/' + id);
+        })
+        $(document).on('click', '#hapus_kategori', function(e){
+                e.preventDefault();
+                var link = $(this).attr('href');
+                
+                Swal.fire({
+                    title: 'Yakin Dihapus?',
+                    text: "Data Kategori Akan Dihapus!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#grey',
+                    cancelButtonText: 'Batal',
+                    confirmButtonText: 'Hapus',
+                    reverseButtons: true
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = link;
+                    }
+                })
+            })
+      </script>
+    @endpush

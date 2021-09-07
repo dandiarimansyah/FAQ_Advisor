@@ -72,7 +72,7 @@
             </h4>
             @endif
         </div>
-        <p>{{$pertanyaan->jawaban}}</p>
+        <p>{!!$pertanyaan->jawaban!!}</p>
 
         <div id="bawah" style="text-align: center">
             <h5>Apakah anda terbantu?</h5>

@@ -36,7 +36,7 @@
             </div>
             <div id="tampil_jawaban">
                 <p>
-                    {{ substr($p->jawaban, 0, 250) }}... 
+                    {!! substr($p->jawaban, 0, 250) !!}... 
                 </p>
             </div>
             <div id="selengkapnya">
