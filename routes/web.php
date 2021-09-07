@@ -34,17 +34,19 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-/*ADMIN FAQ*/
-Route::get('/admin/faq', [PertanyaanController::class, 'tampilPertanyaan']);
-Route::get('/admin/tambah_faq', [PertanyaanController::class, 'tampilTambahPertanyaan']);
-Route::post('/admin/tambah_faq', [PertanyaanController::class, 'tambahPertanyaan']);
-Route::get('/admin/edit_faq/{idpertanyaan}', [PertanyaanController::class, 'tampilEditPertanyaan']);
-Route::post('/admin/edit_faq/{idpertanyaan}', [PertanyaanController::class, 'editPertanyaan']);
-Route::get('/admin/hapus_faq/{idpertanyaan}', [PertanyaanController::class, 'hapusPertanyaan']);
+Route::group(['middleware' => ['auth']], function () {
+    /*ADMIN FAQ*/
+    Route::get('/admin/faq', [PertanyaanController::class, 'tampilPertanyaan']);
+    Route::get('/admin/tambah_faq', [PertanyaanController::class, 'tampilTambahPertanyaan']);
+    Route::post('/admin/tambah_faq', [PertanyaanController::class, 'tambahPertanyaan']);
+    Route::get('/admin/edit_faq/{idpertanyaan}', [PertanyaanController::class, 'tampilEditPertanyaan']);
+    Route::post('/admin/edit_faq/{idpertanyaan}', [PertanyaanController::class, 'editPertanyaan']);
+    Route::get('/admin/hapus_faq/{idpertanyaan}', [PertanyaanController::class, 'hapusPertanyaan']);
 
 
-/*ADMIN KATEGORI*/
-Route::get('/admin/kategori', [KategoriController::class, 'tampilKategori']);
-Route::post('/admin/kategori', [KategoriController::class, 'tambahKategori']);
-Route::post('/admin/edit_kategori/{idkategori}', [KategoriController::class, 'editKategori']);
-Route::get('/admin/hapus_kategori/{idkategori}', [KategoriController::class, 'hapusKategori']);
+    /*ADMIN KATEGORI*/
+    Route::get('/admin/kategori', [KategoriController::class, 'tampilKategori']);
+    Route::post('/admin/kategori', [KategoriController::class, 'tambahKategori']);
+    Route::post('/admin/edit_kategori/{idkategori}', [KategoriController::class, 'editKategori']);
+    Route::get('/admin/hapus_kategori/{idkategori}', [KategoriController::class, 'hapusKategori']);
+});
