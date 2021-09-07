@@ -12,7 +12,7 @@
         </strong>
     </h1>
 
-    <a href="{{ url()->previous() }}" class="back">Kembali</a>
+    <a href="{{ url('/admin/faq') }}" class="back">Kembali</a>
 
     <div class="kotak kotak-mini">
         <form class="tambah-pertanyaan" method="post" action="">
@@ -53,7 +53,10 @@
 
     <script>
         $(document).ready(function(){
-            $('#summernote').summernote();
+            $('#summernote').summernote({
+                height: 400,
+                popatmouse: true
+            });
         });
 
         $(document).ready(function(){

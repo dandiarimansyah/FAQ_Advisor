@@ -12,7 +12,7 @@
             </strong>
         </h1>
 
-        <a href="{{ url()->previous() }}" class="back">Kembali</a>
+        <a href="{{ url('/admin/faq') }}" class="back">Kembali</a>
 
         <div class="kotak kotak-mini">
 
@@ -21,20 +21,20 @@
                 <div class="flex">
                 	<label for="pertanyaan">Pertanyaan</label>
                 	<div class="form-group mb-1">
-                        <textarea class="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value="{{ old('pertanyaan') }}"> </textarea>
+                        <textarea class="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value="{{ old('pertanyaan') }}" required> </textarea>
                     </div>
                 </div>
                 <div class="flex">
                 	<label for="jawaban">Jawaban</label>
                 	<div class="form-group mb-1">
-                        <textarea class="jawaban" id="summernote" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="{{ old('jawaban') }}"> </textarea>
+                        <textarea class="jawaban" id="summernote" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="{{ old('jawaban') }}" required> </textarea>
                     </div>
                 </div>
                 <div class="flex">
                 	<label for="kategori">Kategori</label>
 
                     <div class="form-group">
-                        <select name="kategori[]" class="mul-select" multiple="true">
+                        <select name="kategori[]" class="mul-select" multiple="true" required>
                             @foreach ($kategori as $k)
                                 <option value="{{ $k->id }}">{{ $k->kategori }}</option>
                             @endforeach
@@ -48,23 +48,27 @@
             </form>
         </div> 
 
-        @push('scripts')
-            <script src="{{ asset('summernote/summernote.min.js')}}"></script>
-
-            <script>
-                $(document).ready(function(){
-                    $('#summernote').summernote();
-                });
-
-                $(document).ready(function(){
-                    $(".mul-select").select2({
-                    width: "400px",
-                    placeholder: "Pilih Kategori",
-                    tags: true,
-                    tokenSeparators: ['/',',',';'," "] 
-                });
-            })
-            </script>
-        @endpush
-
+        
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('summernote/summernote.min.js')}}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#summernote').summernote({
+                height: 400,
+                popatmouse: true
+            });
+        });
+
+        $(document).ready(function(){
+            $(".mul-select").select2({
+            width: "400px",
+            placeholder: "Pilih Kategori",
+            tags: true,
+            tokenSeparators: ['/',',',';'," "] 
+        });
+    })
+    </script>
+@endpush
