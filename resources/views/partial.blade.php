@@ -23,17 +23,32 @@
 
     @yield('style')
 
+    @auth
+        <style>
+            #navbar{
+                background-color: rgb(0, 158, 84);
+            }
+        </style>    
+    @endauth
 
 </head>
 <body>
     <div id="navbar">
         <div id="logo">
-            <h1>SWIMPRO</h1>
+            <h1>SWIMPRO
+            @auth
+                <span style="color: yellow">ADMIN</span>
+            @endauth
+            </h1>
         </div>
+
         <div id="menu">
+            @auth
             <li><a href="/">FAQ</a></li>
-            <li><a href="/admin/faq">PERTANYAAN</a></li>
-            <li><a href="/admin/kategori">KATEGORI</a></li>
+                <li><a href="/admin/faq">PERTANYAAN</a></li>
+                <li><a href="/admin/kategori">KATEGORI</a></li>
+                <li><a class="logout" href="/logout">LOGOUT</a></li>
+            @endauth
         </div>
     </div>
 

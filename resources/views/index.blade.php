@@ -40,7 +40,7 @@
                 </p>
             </div>
             <div id="selengkapnya">
-                <a href="{{ url('/lihat_pertanyaan/'. $p->id) }}"> Baca Selengkapnya</a>
+                <a href="{{ url('/lihat_faq/'. $p->id) }}"> Baca Selengkapnya</a>
             </div>
         </div>
         @empty

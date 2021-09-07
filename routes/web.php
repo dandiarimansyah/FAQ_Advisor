@@ -28,6 +28,11 @@ Route::get('/lihat_faq/{idpertanyaan}', [PertanyaanController::class, 'tampilLih
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('proses_login', [AuthController::class, 'proses_login'])->name('proses_login');
 
+//Logout
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
 
 /*ADMIN FAQ*/
 Route::get('/admin/faq', [PertanyaanController::class, 'tampilPertanyaan']);

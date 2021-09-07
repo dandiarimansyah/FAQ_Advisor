@@ -23,20 +23,18 @@
                 <div class="card card1">
                     <div class="row justify-content-center my-auto">
                         <div class="col-md-8 col-10 my-5">
+                            {{-- <h3 class="text-center heading">FAQ EA</h3> --}}
                             <div class="row justify-content-center px-3 mb-3"> 
                                 <img id="logo" src="{{ asset('logo-swimpro.png') }}"> 
                             </div>
-                            <h3 class="mb-5 text-center heading">FAQ EA SWIMPRO</h3>
-                            <h6 class="msg-info">Silahkan Login</h6>
+                            <h6 style="text-align: center" class="msg-info">Silahkan Login</h6>
 
                             <form action="{{url('proses_login')}}" method="POST" id="logForm">
                                 @csrf
                                 <div class="form-group"> 
-                                    <label class="form-control-label text-muted">Email</label> 
                                     <input type="text" id="email" name="email" placeholder="Masukkan Email" class="form-control"> 
                                 </div>
                                 <div class="form-group"> 
-                                    <label class="form-control-label text-muted">Password</label> 
                                     <input type="password" id="psw" name="password" placeholder="Masukkan Password" class="form-control"> 
                                 </div>
 
@@ -51,9 +49,7 @@
 
                 </div>
                 <div class="card card2">
-                    <div class="my-auto mx-md-5 px-md-5 right">
-                        <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small>
-                    </div>
+                    <img id="gambar" src="{{ asset('swimpro.jpg')}}" alt="">
                 </div>
             </div>
         </div>

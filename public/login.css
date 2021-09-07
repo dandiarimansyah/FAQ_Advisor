@@ -1,9 +1,18 @@
+#gambar {
+    height: 100%;
+}
+
+.heading {
+    font-weight: 700;
+    color: #1100f9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background-image: linear-gradient(to right, #d500f9, #ffd54f);
-    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, #1c45ff, #fa6fff);
 }
 
 input,
@@ -49,29 +58,12 @@ button:focus {
 
 .card2 {
     width: 50%;
-    background-image: linear-gradient(to right, #ffd54f, #d500f9);
+    background-image: linear-gradient(to right, #1c45ff, #fa6fff);
 }
 
 #logo {
-    width: 70px;
-    height: 60px;
-}
-
-.heading {
-    margin-bottom: 60px !important;
-}
-
-::placeholder {
-    color: #000 !important;
-    opacity: 1;
-}
-
-:-ms-input-placeholder {
-    color: #000 !important;
-}
-
-::-ms-input-placeholder {
-    color: #000 !important;
+    height: 70px;
+    margin-bottom: 90px;
 }
 
 .form-control-label {
@@ -87,7 +79,7 @@ button:focus {
 .btn-color {
     border-radius: 50px;
     color: #fff;
-    background-image: linear-gradient(to right, #ffd54f, #d500f9);
+    background-image: linear-gradient(to right, #1100f9, #fa6fff);
     padding: 15px;
     cursor: pointer;
     border: none !important;
