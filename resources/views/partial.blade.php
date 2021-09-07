@@ -32,8 +32,8 @@
         </div>
         <div id="menu">
             <li><a href="/">FAQ</a></li>
-            <li><a href="/pertanyaan">PERTANYAAN</a></li>
-            <li><a href="/kategori">KATEGORI</a></li>
+            <li><a href="/admin/faq">PERTANYAAN</a></li>
+            <li><a href="/admin/kategori">KATEGORI</a></li>
         </div>
     </div>
 

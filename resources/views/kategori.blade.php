@@ -101,7 +101,7 @@
             let nama = $(this).data('nama');
             let id = $(this).data('id');
             $('#nama').val(nama);
-            $('#edit_form').attr('action', '/edit_kategori/' + id);
+            $('#edit_form').attr('action', '/admin/edit_kategori/' + id);
       })
       $(document).on('click', '#hapus_kategori', function(e){
               e.preventDefault();

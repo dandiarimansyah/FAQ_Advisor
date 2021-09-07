@@ -11,7 +11,7 @@
     <div class="kotak kotak-mini">
 
         <div id="tabel_pertanyaan" class="judul_tabel tombol mb-2">
-            <a href="/tambah_pertanyaan" class="tambah">Tambah Pertanyaan</a>
+            <a href="/admin/tambah_pertanyaan" class="tambah">Tambah Pertanyaan</a>
             <a href="" class="tambah" id="import">Import Excel</a>
         </div>
 

@@ -8,7 +8,7 @@
             </strong>
         </h1>
 
-        <a href="/pertanyaan" class="back">Kembali</a>
+        <a href="{{ url()->previous() }}" class="back">Kembali</a>
 
         <div class="kotak kotak-mini">
 

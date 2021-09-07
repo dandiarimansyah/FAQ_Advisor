@@ -5,6 +5,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\AuthController;
 
 
 
@@ -19,20 +20,26 @@ use App\Http\Controllers\KategoriController;
 |
 */
 
+// PUBLIC
 Route::get('/', [AdminController::class, 'index']);
+Route::get('/lihat_faq/{idpertanyaan}', [PertanyaanController::class, 'tampilLihatPertanyaan']);
 
-/*PERTANYAAN*/
-Route::get('/pertanyaan', [PertanyaanController::class, 'tampilPertanyaan']);
-Route::get('/lihat_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'tampilLihatPertanyaan']);
-Route::get('/tambah_pertanyaan', [PertanyaanController::class, 'tampilTambahPertanyaan']);
-Route::post('/tambah_pertanyaan', [PertanyaanController::class, 'tambahPertanyaan']);
-Route::get('/edit_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'tampilEditPertanyaan']);
-Route::post('/edit_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'editPertanyaan']);
-Route::get('/hapus_pertanyaan/{idpertanyaan}', [PertanyaanController::class, 'hapusPertanyaan']);
+//Login
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('proses_login', [AuthController::class, 'proses_login'])->name('proses_login');
 
 
-/*KATEGORI*/
-Route::get('/kategori', [KategoriController::class, 'tampilKategori']);
-Route::post('/kategori', [KategoriController::class, 'tambahKategori']);
-Route::post('/edit_kategori/{idkategori}', [KategoriController::class, 'editKategori']);
-Route::get('/hapus_kategori/{idkategori}', [KategoriController::class, 'hapusKategori']);
+/*ADMIN FAQ*/
+Route::get('/admin/faq', [PertanyaanController::class, 'tampilPertanyaan']);
+Route::get('/admin/tambah_faq', [PertanyaanController::class, 'tampilTambahPertanyaan']);
+Route::post('/admin/tambah_faq', [PertanyaanController::class, 'tambahPertanyaan']);
+Route::get('/admin/edit_faq/{idpertanyaan}', [PertanyaanController::class, 'tampilEditPertanyaan']);
+Route::post('/admin/edit_faq/{idpertanyaan}', [PertanyaanController::class, 'editPertanyaan']);
+Route::get('/admin/hapus_faq/{idpertanyaan}', [PertanyaanController::class, 'hapusPertanyaan']);
+
+
+/*ADMIN KATEGORI*/
+Route::get('/admin/kategori', [KategoriController::class, 'tampilKategori']);
+Route::post('/admin/kategori', [KategoriController::class, 'tambahKategori']);
+Route::post('/admin/edit_kategori/{idkategori}', [KategoriController::class, 'editKategori']);
+Route::get('/admin/hapus_kategori/{idkategori}', [KategoriController::class, 'hapusKategori']);
