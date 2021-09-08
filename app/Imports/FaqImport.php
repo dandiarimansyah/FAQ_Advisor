@@ -3,8 +3,6 @@
 namespace App\Imports;
 
 use App\Models\Pertanyaan;
-use App\Models\Faq_Kategori;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 
@@ -21,7 +19,7 @@ class FaqImport implements ToCollection
                 $data->jawaban = $row[1];
                 $data->save();
 
-                $data->kategori()->sync($row[3]);
+                $data->kategori()->sync($row[2]);
             }
         }
     }

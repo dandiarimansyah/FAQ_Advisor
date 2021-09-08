@@ -43,6 +43,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/edit_faq/{idpertanyaan}', [PertanyaanController::class, 'editPertanyaan']);
     Route::get('/admin/hapus_faq/{idpertanyaan}', [PertanyaanController::class, 'hapusPertanyaan']);
 
+    /*IMPORT*/
+    Route::post('/admin/import_faq', [PertanyaanController::class, 'importPertanyaan']);
+
 
     /*ADMIN KATEGORI*/
     Route::get('/admin/kategori', [KategoriController::class, 'tampilKategori']);

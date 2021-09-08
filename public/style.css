@@ -56,6 +56,29 @@ body {
     border-radius: 10px;
 }
 
+/*----------- IMPORT -----------*/
+
+.template {
+    background: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.template p {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.template a {
+    margin-top: 10px;
+    text-decoration: none;
+    background: green;
+    color: white;
+    border-radius: 5px;
+}
+
 /*----------- KATEGORI -----------*/
 
 .judul_tabel {
@@ -118,7 +141,7 @@ body {
     background-color: #007ab3;
 }
 
-#import {
+.import {
     background-color: #018634;
 }
 
