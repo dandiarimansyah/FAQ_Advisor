@@ -232,12 +232,22 @@ body {
 
 #atas h1,
 #atas h2 {
+    font-weight: 800;
     color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(10, 0, 99);
 }
 
 #form_search #search {
-    padding: 5px 10px;
-    width: 20rem;
+    padding: 5px 15px;
+    width: 25rem;
+    border-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0;
+}
+
+#form_search #search:focus {
+    outline: none;
 }
 
 #form_search button {
@@ -245,6 +255,12 @@ body {
     padding: 5px 20px;
     cursor: pointer;
     font-weight: 700;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#form_search button:focus {
+    outline: none;
 }
 
 #kumpulan_faqs {

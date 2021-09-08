@@ -4,8 +4,8 @@
 
     <div id="pencarian">
         <div id="atas">
-            <h1>FAQ</h1>
-            <h2>Frequently Asked Question</h2>
+            <h1>Form Pencarian</h1>
+            <h1>Riwayat FAQ</h1>
         </div>
         <div>
             <form action="">
