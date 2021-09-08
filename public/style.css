@@ -193,13 +193,8 @@ body {
 }
 
 .tambah-pertanyaan .pertanyaan {
-    width: 700px;
+    width: 900px;
     height: 65px;
-}
-
-.tambah-pertanyaan .jawaban {
-    width: 700px;
-    height: 180px;
 }
 
 /*INDEX*/

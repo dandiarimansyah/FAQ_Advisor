@@ -35,12 +35,11 @@
     @endauth
 
     @guest
-    <style>
-        body{
-            background-image: url("/background.jpg");
-
-        }
-    </style>
+        <style>
+            body{
+                background-image: url("/background.jpg");
+            }
+        </style>
     @endguest
 
 </head>
@@ -74,7 +73,7 @@
         $(document).ready(function(){
             $('#summernote').summernote({
                 height: 400,
-                width: 700,
+                width: 900,
                 popatmouse: true
             });
         });

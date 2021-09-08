@@ -8,6 +8,10 @@ use App\Models\Kategori;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\FaqImport;
+use Illuminate\Support\Facades\File;
+
 
 
 class PertanyaanController extends Controller
@@ -101,5 +105,19 @@ class PertanyaanController extends Controller
         }
 
         return back();
+    }
+
+
+    //IMPORT S 1
+    public function importPertanyaan(Request $request)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('File Import', $namaFile);
+
+        Excel::import(new FaqImport, public_path('/File Import/' . $namaFile));
+        File::delete(public_path('/File Import/' . $namaFile));
+
+        return redirect('/admin/faq')->with('toast_success', 'Import Data Berhasil!');
     }
 }
