@@ -28,8 +28,20 @@
             #navbar{
                 background-color: rgb(0, 158, 84);
             }
+            body{
+                background-image: url("/background2.jpg");
+            }
         </style>    
     @endauth
+
+    @guest
+    <style>
+        body{
+            background-image: url("/background.jpg");
+
+        }
+    </style>
+    @endguest
 
 </head>
 <body>
@@ -59,9 +71,17 @@
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function(){
+            $('#summernote').summernote({
+                height: 400,
+                width: 700,
+                popatmouse: true
+            });
+        });
+
+        $(document).ready(function () {         
             var table = $('#datatable').DataTable();
-        })
+        });
     </script>
 
     @stack('scripts')

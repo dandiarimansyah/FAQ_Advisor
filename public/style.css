@@ -2,7 +2,9 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    /* height: 100%; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #navbar {
@@ -42,35 +44,9 @@ body {
     color: rgb(255, 243, 81);
 }
 
-#pencarian {
-    border: 3px solid black;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    background-color: white;
-    border-radius: 10px;
-}
-
-#atas {
-    margin-bottom: 20px;
-}
-
-#form_search #search {
-    padding: 5px 10px;
-    width: 20rem;
-}
-
-#form_search button {
-    background-color: rgb(255, 234, 166);
-    padding: 5px 20px;
-    cursor: pointer;
-    font-weight: 700;
-}
-
 .dalam-konten {
     height: 100%;
     padding: 20px;
-    background-color: rgba(198, 244, 255, 0.795);
 }
 
 .logout {
@@ -86,6 +62,12 @@ body {
     /* display: flex; */
     /* align-items: center; */
     text-align: center;
+}
+
+.judul-section {
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .judul_tabel h2 {
@@ -160,11 +142,12 @@ body {
     background-color: red;
 }
 .back {
-    padding: 5px 25px;
+    padding: 5px 20px;
     font-size: 20px;
     margin-left: 40px;
-    background-color: rgb(0, 0, 0);
-    color: white;
+    background-color: rgb(17, 17, 17);
+    color: rgb(255, 255, 255);
+    border: 2px solid white;
     border-radius: 5px;
 }
 
@@ -197,7 +180,7 @@ body {
     background-color: white;
     margin: 20px auto;
     padding: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 10px;
 }
 
@@ -220,42 +203,95 @@ body {
 }
 
 /*INDEX*/
+#pencarian {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+#atas {
+    margin-bottom: 20px;
+}
+
+#atas h1,
+#atas h2 {
+    color: rgb(255, 255, 255);
+}
+
+#form_search #search {
+    padding: 5px 10px;
+    width: 20rem;
+}
+
+#form_search button {
+    background-color: rgb(255, 234, 166);
+    padding: 5px 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
 #kumpulan_faqs {
-    margin: 20px auto;
-    width: 85%;
+    margin: 15px auto;
     text-align: justify;
     padding: 10px;
 }
 
 #setiap_faqs {
-    border: 2px solid rgb(63, 63, 63);
+    margin: 0 auto;
+    width: 85%;
     margin-bottom: 15px;
 }
 
-#tampil_pertanyaan {
-    background-color: rgb(255, 243, 225);
-    padding: 5px;
+.tampil_pertanyaan {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: rgb(255, 253, 244);
+    padding: 5px 10px;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid rgb(63, 63, 63);
 }
 
-#tampil_pertanyaan h6 {
-    color: brown;
+.tampil_pertanyaan h5 {
+    font-size: 17px;
 }
 
-#tampil_jawaban {
+.tampil_pertanyaan h6 {
+    margin: 0;
+    font-size: 15px;
+    color: rgb(134, 60, 0);
+}
+
+.tampil_jawaban {
+    /* display: none; */
+    border: 1px solid black;
+    border-top: 0;
     background-color: #ffffff;
+}
+
+.tampil_jawaban p {
     padding: 10px;
+    margin: 0;
 }
 
 #selengkapnya {
-    margin: 0 auto;
     text-align: center;
-    padding: 4px;
 }
 
 #selengkapnya a {
+    display: block;
     background-color: rgb(27, 99, 255);
-    padding: 5px 545px;
-    border-radius: 10px;
     color: white;
     text-decoration: none;
+}
+
+.tombol-kanan {
+    margin-right: 10px;
+}
+
+.tombol-kanan i {
+    font-size: 40px;
+    /* background-color: teal; */
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <h1 class="tengah">
+    <h1 class="judul-section tengah">
         <strong>
             DATA KATEGORI
         </strong>

@@ -51,7 +51,10 @@
 
 @section('content')
 
-<a href="{{ url()->previous() }}" style="margin-left: 0" class="back">Kembali</a>
+<a href="{{ url()->previous() }}" style="margin-left: 0" class="back">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <span class="ml-2">Kembali</span>
+</a>
 
 <div class="konten">
     

@@ -6,13 +6,16 @@
 
 @section('content')
 
-    <h1 class="tengah">
+    <h1 class="judul-section tengah">
         <strong>
             EDIT PERTANYAAN
         </strong>
     </h1>
 
-    <a href="{{ url('/admin/faq') }}" class="back">Kembali</a>
+    <a href="{{ url('/admin/faq') }}" class="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <span class="ml-2">Kembali</span>
+    </a>
 
     <div class="kotak kotak-mini">
         <form class="tambah-pertanyaan" method="post" action="">
@@ -52,13 +55,7 @@
     <script src="{{ asset('summernote/summernote.min.js')}}"></script>
 
     <script>
-        $(document).ready(function(){
-            $('#summernote').summernote({
-                height: 400,
-                popatmouse: true
-            });
-        });
-
+        
         $(document).ready(function(){
             $(".mul-select").select2({
                 width: "400px",
