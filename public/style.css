@@ -9,7 +9,6 @@ body {
 
 #navbar {
     display: flex;
-    background-color: rgb(0, 95, 158);
     padding: 15px;
     color: white;
     flex-direction: row;
@@ -264,7 +263,7 @@ body {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    background-color: rgb(255, 253, 244);
+    background-color: rgb(0, 40, 116);
     padding: 5px 10px;
     border-radius: 10px;
     border-bottom-right-radius: 0;
@@ -273,18 +272,20 @@ body {
 }
 
 .tampil_pertanyaan h5 {
+    color: white;
     font-size: 17px;
 }
 
 .tampil_pertanyaan h6 {
     margin: 0;
     font-size: 15px;
-    color: rgb(134, 60, 0);
+    color: rgb(240, 255, 101);
 }
 
 .tampil_jawaban {
     /* display: none; */
     border: 1px solid black;
+    border-bottom: 0;
     border-top: 0;
     background-color: #ffffff;
 }
@@ -300,7 +301,8 @@ body {
 
 #selengkapnya a {
     display: block;
-    background-color: rgb(27, 99, 255);
+    background-color: rgb(53, 53, 53);
+    padding: 3px;
     color: white;
     text-decoration: none;
 }
@@ -311,5 +313,6 @@ body {
 
 .tombol-kanan i {
     font-size: 40px;
+    color: white;
     /* background-color: teal; */
 }

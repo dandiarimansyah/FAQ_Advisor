@@ -26,7 +26,7 @@
     @auth
         <style>
             #navbar{
-                background-color: rgb(0, 158, 84);
+                background-color: rgba(3, 97, 53, 0.685);
             }
             body{
                 background-image: url("/background2.jpg");
@@ -36,6 +36,9 @@
 
     @guest
         <style>
+            #navbar{
+                background-color: rgba(0, 57, 95, 0.712);
+            }
             body{
                 background-image: url("/background.jpg");
             }
