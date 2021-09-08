@@ -14,6 +14,21 @@
                     <button id="cari">CARI</button>
                 </div>
             </form>
+            <div class="filter">
+                <h6>Filter Pencarian 
+                    <span>
+                        <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                    </span>
+                </h6>
+            </div>
+            <div class="box-filter">
+                @foreach ($kategori as $k)
+                    <div>
+                        <input type="checkbox" id="{{ $k->id }}">
+                        <label for="{{ $k->id }}">{{ $k->kategori}}</label>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 
@@ -61,7 +76,13 @@
 <script>
     $(document).ready(function () {
         $('.tampil_jawaban').hide();
+        $('.box-filter').hide();
     });
+
+    $(document).on("click",".filter", function () {
+        $('.box-filter').toggle(30);
+    });
+
 
     $(document).on("click",".tampil_pertanyaan", function () {
         var id = $(this).attr('id');

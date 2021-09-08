@@ -11,8 +11,8 @@ class AdminController extends Controller
     public function index()
     {
         $pertanyaan = Pertanyaan::orderBy('updated_at', 'desc')->get();
+        $kategori = Kategori::orderBy('kategori', 'asc')->get();
 
-        return view('index', compact('pertanyaan'));
+        return view('index', compact('pertanyaan', 'kategori'));
     }
-
 }

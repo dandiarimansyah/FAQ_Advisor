@@ -1,9 +1,5 @@
 @extends('partial')
 
-@section('style')
-    <link rel="stylesheet" href="{{ asset('summernote/summernote.min.css')}}">
-@endsection
-
 @section('content')
 
         <h1 class="judul-section tengah">
@@ -55,10 +51,8 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('summernote/summernote.min.js')}}"></script>
 
     <script>
-
         $(document).ready(function(){
             $(".mul-select").select2({
             width: "400px",

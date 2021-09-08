@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
+    {{-- Summernote --}}
+    <link rel="stylesheet" href="{{ asset('summernote/summernote.min.css')}}">
+
+
     @yield('style')
 
     @auth
@@ -72,6 +76,8 @@
     
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('summernote/summernote.min.js')}}"></script>
+
     <script type="text/javascript">
         $(document).ready(function(){
             $('#summernote').summernote({
