@@ -33,7 +33,7 @@
                 	<label for="kategori">Kategori</label>
 
                     <div class="form-group">
-                        <select name="kategori[]" class="mul-select" multiple="true" required>
+                        <select name="kategori[]" class="mul-select" multiple="true">
                             @foreach ($kategori as $k)
                                 <option value="{{ $k->id }}">{{ $k->kategori }}</option>
                             @endforeach

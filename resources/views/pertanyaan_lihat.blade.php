@@ -11,7 +11,7 @@
             font-weight: 650;
         }
 
-        h4{
+        h3{
             font-size: 20px;
             color: brown
         }
@@ -44,8 +44,26 @@
         }
 
         button:hover{
-            background-color: rgb(155, 155, 155);
+            color: rgb(255, 255, 255);
+            transform: scale(1.1);
+            font-weight: 600;
         }
+
+        .ya{
+            background-color: rgb(0, 163, 14);
+            color: white;
+        }
+
+        .tidak{
+            background-color: rgb(255, 38, 38);
+            color: white;
+        }
+
+        .saran{
+            width: 500px;
+            padding: 10px;
+        }
+
     </style>
 @endsection
 
@@ -80,10 +98,26 @@
         <div id="bawah" style="text-align: center">
             <h5>Apakah anda terbantu?</h5>
             <div class="flex flex-center">
-                <button>Ya</button>
-                <button>Tidak</button>
+                <button class="terjawab ya">Ya</button>
+                <button class="terjawab tidak">Tidak</button>
             </div>
         </div>
+
+        <div class="thank tengah mt-2">
+            <h4 style="color: blue">Terima Kasih!</h4>
+        </div>
+
+        <div class="tengah" id="kotak-saran">
+            <form action="">
+                @csrf
+                <h4 for="">Jika ada saran atau kritik, <br> Silahkan tulis di bawah ini</h4>
+                <textarea class="saran" name="masukan" id="" cols="30" rows="10"></textarea>
+                <div>
+                    <button class="ya" type="submit">Kirim</button>
+                </div>
+            </form>
+        </div>
+
     </div>
 
     <div class="kotak kanan">
@@ -99,3 +133,24 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function () {
+        $('#kotak-saran').hide();
+        $('.thank').hide();
+    });
+
+    $(document).on("click",".terjawab", function () {
+        $('#bawah').hide();
+        $('.thank').fadeIn(800);
+        $('.thank').fadeOut(800);
+
+        setTimeout(function () {
+            $('#kotak-saran').fadeIn(1200);
+        }, 1500);
+    });
+
+</script>
+    
+@endpush

@@ -344,6 +344,10 @@ body {
     cursor: pointer;
 }
 
+.filter:hover {
+    background-color: rgb(233, 233, 233);
+}
+
 .filter h6 {
     font-size: 18px;
     font-weight: 650;
