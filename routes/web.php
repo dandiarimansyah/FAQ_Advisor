@@ -5,6 +5,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\ResponController;
 use App\Http\Controllers\AuthController;
 
 
@@ -52,4 +53,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/kategori', [KategoriController::class, 'tambahKategori']);
     Route::post('/admin/edit_kategori/{idkategori}', [KategoriController::class, 'editKategori']);
     Route::get('/admin/hapus_kategori/{idkategori}', [KategoriController::class, 'hapusKategori']);
+
+
+    /*ADMIN RESPON*/
+    Route::get('/admin/respon', [ResponController::class, 'tampilRespon']);
 });

@@ -96,7 +96,7 @@
         <p>{!!$pertanyaan->jawaban!!}</p>
 
         <div id="bawah" style="text-align: center">
-            <h5>Apakah anda terbantu?</h5>
+            <h5>Jawaban sesuai dengan yang anda cari?</h5>
             <div class="flex flex-center">
                 <button class="terjawab ya">Ya</button>
                 <button class="terjawab tidak">Tidak</button>

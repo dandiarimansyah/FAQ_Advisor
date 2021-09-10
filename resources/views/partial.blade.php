@@ -65,6 +65,7 @@
             <li><a href="/">FAQ</a></li>
                 <li><a href="/admin/faq">PERTANYAAN</a></li>
                 <li><a href="/admin/kategori">KATEGORI</a></li>
+                <li><a href="/admin/respon">RESPON</a></li>
                 <li><a class="logout" href="/logout">LOGOUT</a></li>
             @endauth
         </div>

@@ -35,8 +35,9 @@
                     @forelse ($pertanyaan as $p)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $p-> pertanyaan }}</td>
-                            <td style="text-align: justify">{!! substr($p->jawaban, 0, 80) !!} ....</td>
+                            <td class="text-justify">{{ $p-> pertanyaan }}</td>
+                            <td class="text-justify">{!! Str::limit($p->jawaban,80) !!} </td>
+                            {{-- <td class="text-justify">{!! substr($p->jawaban, 0, 80) !!} ....</td> --}}
                             <td>
                                 @foreach ($p->kategori as $kategori)
                                     {{$kategori-> kategori}}  <br>
@@ -92,37 +93,19 @@
         </div>
     </div>
     
-	<script type="text/javascript">
-
-        //Import Data
-        $(document).on('click','#import_data',function(){
-            var link = $(this).attr('href');
-            var loc = $(this).attr('loc');
-            
-            $('#import_form').attr('action', '' + link);
-            $('#template_excel').attr('href', '' + loc);
-        })
-
-
-        $(document).on('click', '#hapus_kategori', function(e){
-                e.preventDefault();
-                var link = $(this).attr('href');
-                
-                Swal.fire({
-                    title: 'Yakin Dihapus?',
-                    text: "Pertanyaan Akan Dihapus Dari Daftar!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#grey',
-                    cancelButtonText: 'Batal',
-                    confirmButtonText: 'Hapus',
-                    reverseButtons: true
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location = link;
-                    }
-                })
-            })
-    </script>
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+
+    //Import Data
+    $(document).on('click','#import_data',function(){
+        var link = $(this).attr('href');
+        var loc = $(this).attr('loc');
+        
+        $('#import_form').attr('action', '' + link);
+        $('#template_excel').attr('href', '' + loc);
+    })
+
+</script>
+@endpush

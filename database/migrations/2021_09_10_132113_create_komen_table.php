@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaqsTable extends Migration
+class CreateKomenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateFaqsTable extends Migration
      */
     public function up()
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('komen', function (Blueprint $table) {
             $table->id();
-            $table->longText('pertanyaan');
-            $table->longText('jawaban');
-            $table->bigInteger('like')->nullable()->default(0);
-            $table->bigInteger('dislike')->nullable()->default(0);
-            $table->bigInteger('poin')->nullable()->default(0);
+            $table->unsignedBigInteger('id_faqs');
+            $table->longText('komentar');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateFaqsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faqs');
+        Schema::dropIfExists('komen');
     }
 }
