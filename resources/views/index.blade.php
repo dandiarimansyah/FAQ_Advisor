@@ -38,18 +38,18 @@
                 @foreach ($faq as $p)                
                 <div id="setiap_faqs">
                     <div id="{{ $p->id }}" class="tampil_pertanyaan">
-                        <div>
+                        <div class="d-flex flex-column justify-content-center" style="">
                             <h5>{{ $p-> pertanyaan }}</h5>
-                            @if ($p->kategori != null)
-                            <h6>Kategori :
-                                @foreach ($p->kategori as $idx => $item)
-                                    @if (!isset($p->kategori[$idx+1]))
-                                    {{$item->kategori}}      
-                                    @else
-                                    {{$item->kategori}},
-                                    @endif
-                                @endforeach
-                            </h6>
+                            @if (!collect($p->kategori)->isEmpty())
+                                <h6>Kategori :
+                                    @foreach ($p->kategori as $idx => $item)
+                                        @if (!isset($p->kategori[$idx+1]))
+                                        {{$item->kategori}}      
+                                        @else
+                                        {{$item->kategori}},
+                                        @endif
+                                    @endforeach
+                                </h6>
                             @endif
                         </div>
                         <div class="tombol-kanan">
@@ -59,7 +59,7 @@
 
                     <div id="jawaban{{ $p->id }}" class="tampil_jawaban">
                         <p>
-                            {!! substr($p->jawaban, 0, 250) !!}... 
+                            {!! substr($p->jawaban, 0, 450) !!}... 
                         </p>
                         <div id="selengkapnya">
                             <a href="{{ url('/lihat_faq/'. $p->id) }}"> Baca Selengkapnya</a>
@@ -86,7 +86,7 @@
     });
 
     $(document).on("click",".filter", function () {
-        $('.box-filter').toggle(30);
+        $('.box-filter').fadeToggle(200);
     });
 
     $(document).on("click",".tampil_pertanyaan", function () {

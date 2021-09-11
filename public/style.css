@@ -271,31 +271,29 @@ body {
 
 #setiap_faqs {
     margin: 0 auto;
-    width: 85%;
-    margin-bottom: 15px;
+    width: 55%;
+    margin-bottom: 10px;
 }
 
 .tampil_pertanyaan {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    background-color: rgb(0, 40, 116);
-    padding: 5px 10px;
-    border-radius: 10px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border: 1px solid rgb(63, 63, 63);
+    background-color: rgba(255, 248, 236, 0.952);
+    padding: 10px 10px;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .tampil_pertanyaan h5 {
-    color: white;
-    font-size: 17px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    margin-bottom: 3px;
 }
 
 .tampil_pertanyaan h6 {
     margin: 0;
     font-size: 15px;
-    color: rgb(240, 255, 101);
+    color: rgb(76, 0, 121);
 }
 
 .tampil_jawaban {
@@ -329,7 +327,8 @@ body {
 
 .tombol-kanan i {
     font-size: 40px;
-    color: white;
+    color: rgb(0, 0, 0);
+    margin-left: 12px;
     /* background-color: teal; */
 }
 
@@ -339,8 +338,6 @@ body {
     margin-bottom: 0;
     padding: 5px 10px 2px 10px;
     background-color: white;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
     cursor: pointer;
 }
 
@@ -356,7 +353,7 @@ body {
 .filter i {
     font-size: 20px;
     font-weight: 600;
-    padding-left: 4px;
+    margin-left: 4px;
 }
 
 .box-filter {
