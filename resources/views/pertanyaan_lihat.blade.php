@@ -98,8 +98,15 @@
         <div id="bawah" style="text-align: center">
             <h5>Jawaban sesuai dengan yang anda cari?</h5>
             <div class="flex flex-center">
-                <button class="terjawab ya">Ya</button>
-                <button class="terjawab tidak">Tidak</button>
+                <form id="like" method="POST" action="{{ url('/like/'. $pertanyaan->id) }}">
+                    @csrf
+                    <button type="submit" class="terjawab ya">Ya</button>
+                </form>
+
+                <form id="dislike" method="POST" action="{{ url('/dislike/'. $pertanyaan->id) }}">
+                    @csrf
+                    <button type="submit" class="terjawab tidak">Tidak</button>
+                </form>
             </div>
         </div>
 
@@ -108,7 +115,7 @@
         </div>
 
         <div class="tengah" id="kotak-saran">
-            <form action="">
+            <form id="komen" method="POST" action="{{ url('/komen/'. $pertanyaan->id) }}">
                 @csrf
                 <h4 for="">Jika ada saran atau kritik, <br> Silahkan tulis di bawah ini</h4>
                 <textarea class="saran" name="masukan" id="" cols="30" rows="10"></textarea>
@@ -150,6 +157,86 @@
             $('#kotak-saran').fadeIn(1200);
         }, 1500);
     });
+
+    $(document).on("click","#like", function (e) {
+        e.preventDefault();
+        let url = $(this).attr('action');
+        let data = 'ini data';
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (response){
+                console.log(response);
+            }
+        });
+    });
+
+    $(document).on("click","#dislike", function (e) {
+        e.preventDefault();
+        let url = $(this).attr('action');
+        let data = 'ini data';
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (response){
+                console.log(response);
+            }
+        });
+    });
+
+    $(document).on("submit","#komen", function (e) {
+        e.preventDefault();
+        let url = $(this).attr('action');
+        let data = {
+            'komentar': $('.saran').val(),
+        };
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (response){
+                console.log(response);
+
+                $('#kotak-saran').fadeOut(500);
+
+                setTimeout(function () {
+                    $('.thank').fadeIn(500);
+                }, 500);
+
+                setTimeout(function () {
+                    $('.thank').fadeOut(500);
+                }, 1000);
+
+            }
+        });
+    });
+
 
 </script>
     

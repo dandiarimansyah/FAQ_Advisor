@@ -24,6 +24,9 @@ use App\Http\Controllers\AuthController;
 // PUBLIC
 Route::get('/', [AdminController::class, 'index']);
 Route::get('/lihat_faq/{idpertanyaan}', [PertanyaanController::class, 'tampilLihatPertanyaan']);
+Route::post('/like/{id}', [ResponController::class, 'like']);
+Route::post('/dislike/{id}', [ResponController::class, 'dislike']);
+Route::post('/komen/{id}', [ResponController::class, 'komen']);
 
 //Login
 Route::get('login', [AuthController::class, 'login'])->name('login');

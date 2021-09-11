@@ -13,6 +13,11 @@ class Pertanyaan extends Model
 
     public function kategori()
     {
-    	return $this->belongsToMany(Kategori::class, 'faqs_kategori', 'faqs_id', 'kategori_id');
-	}
+        return $this->belongsToMany(Kategori::class, 'faqs_kategori', 'faqs_id', 'kategori_id');
+    }
+
+    public function komen()
+    {
+        return $this->hasMany(Komen::class, 'id', 'id_faqs');
+    }
 }

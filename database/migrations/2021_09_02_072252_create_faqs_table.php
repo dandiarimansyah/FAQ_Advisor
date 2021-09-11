@@ -20,6 +20,7 @@ class CreateFaqsTable extends Migration
             $table->bigInteger('like')->nullable()->default(0);
             $table->bigInteger('dislike')->nullable()->default(0);
             $table->bigInteger('poin')->nullable()->default(0);
+            $table->bigInteger('jml_komen')->nullable()->default(0);
             $table->timestamps();
         });
     }
