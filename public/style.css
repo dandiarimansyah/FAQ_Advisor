@@ -269,7 +269,7 @@ body {
     padding: 10px;
 }
 
-#setiap_faqs {
+.setiap_faqs {
     margin: 0 auto;
     width: 55%;
     margin-bottom: 10px;
@@ -282,6 +282,7 @@ body {
     background-color: rgba(255, 248, 236, 0.952);
     padding: 10px 10px;
     border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
 }
 
 .tampil_pertanyaan h5 {
@@ -360,7 +361,7 @@ body {
     display: flex;
     justify-content: flex-start;
     gap: 20px;
-    width: 500px;
+    width: 510px;
     margin: 0 auto;
     text-align: justify;
     padding: 5px 20px;

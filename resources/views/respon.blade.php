@@ -1,5 +1,17 @@
 @extends('partial')
 
+@section('style')
+    <style>
+        .negatif{
+            background-color: rgb(255, 194, 194);
+        }
+
+        .positif{
+            background-color: rgb(194, 255, 194);
+        }
+    </style>
+@endsection
+
 @section('content')
 
     <h1 class="judul-section tengah">
@@ -30,7 +42,13 @@
                             <td class="text-left">{{ $p-> pertanyaan }}</td>
                             <td class='text-center'>{{ $p->like }}</td>
                             <td class='text-center'>{{ $p->dislike }}</td>
-                            <td class='text-center'>{{ $p->poin }}</td>
+
+                            @if ( $p->poin < 0 )
+                                <td class='text-center negatif'>{{ $p->poin }}</td>
+                            @else
+                                <td class='text-center positif'>{{ $p->poin }}</td>
+                            @endif
+
                             <td class='text-center'>{{ $p->jml_komen }}</td>
                             <td class="tombol flex flex-center">
                                 <a href="{{ url('/lihat_faq/'. $p->id) }}" class="lihat">Lihat</a>

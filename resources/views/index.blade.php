@@ -36,7 +36,7 @@
     <div id="kumpulan_faqs">
         @if ($faq != null)
             @forelse ($faq as $p)                
-                <div id="setiap_faqs">
+                <div class="setiap_faqs" onclick="location.href='{{ url('/lihat_faq/'. $p->id) }}'">
                     <div id="{{ $p->id }}" class="tampil_pertanyaan">
                         <div class="d-flex flex-column justify-content-center" style="">
                             <h5>{{ $p-> pertanyaan }}</h5>
@@ -57,14 +57,14 @@
                         </div>
                     </div>
 
-                    <div id="jawaban{{ $p->id }}" class="tampil_jawaban">
+                    {{-- <div id="jawaban{{ $p->id }}" class="tampil_jawaban">
                         <p>
                             {!! substr($p->jawaban, 0, 450) !!}... 
                         </p>
                         <div id="selengkapnya">
                             <a href="{{ url('/lihat_faq/'. $p->id) }}"> Baca Selengkapnya</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             @empty
@@ -95,22 +95,20 @@
         $('.box-filter').fadeToggle(200);
     });
 
-    $(document).on("click",".tampil_pertanyaan", function () {
-        var id = $(this).attr('id');
+    // $(document).on("click",".tampil_pertanyaan", function () {
+    //     var id = $(this).attr('id');
 
-        // $(this).find("i").toggleClass("fa fa-caret-right fa fa-caret-down");
+    //     if($('#jawaban'+id).is(":visible")){
+    //         $(this).find("i").attr("class", "fa fa-caret-right");
+    //         $('#jawaban'+id).hide(80);
+    //     }else{
+    //         $('.tampil_pertanyaan').find("i").attr("class", "fa fa-caret-right");
+    //         $(this).find("i").attr("class", "fa fa-caret-down");
 
-        if($('#jawaban'+id).is(":visible")){
-            $(this).find("i").attr("class", "fa fa-caret-right");
-            $('#jawaban'+id).hide(80);
-        }else{
-            $('.tampil_pertanyaan').find("i").attr("class", "fa fa-caret-right");
-            $(this).find("i").attr("class", "fa fa-caret-down");
-
-            $('.tampil_jawaban').hide();
-            $('#jawaban'+id).show(80);
-        }
-    });
+    //         $('.tampil_jawaban').hide();
+    //         $('#jawaban'+id).show(80);
+    //     }
+    // });
     
 </script>   
 @endpush
