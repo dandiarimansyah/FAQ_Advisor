@@ -52,9 +52,9 @@
                                 </h6>
                             @endif
                         </div>
-                        <div class="tombol-kanan">
+                        {{-- <div class="tombol-kanan">
                             <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        </div>
+                        </div> --}}
                     </div>
 
                     {{-- <div id="jawaban{{ $p->id }}" class="tampil_jawaban">

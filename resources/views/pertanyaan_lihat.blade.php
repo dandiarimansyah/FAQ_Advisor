@@ -6,6 +6,15 @@
             margin-bottom: 20px;
             border-bottom: 2px solid black;
         }
+
+        #kotak-saran{
+            text-align: center;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+
+
         h2{
             font-size: 32px;
             font-weight: 650;
@@ -59,22 +68,32 @@
 
         button{
             cursor: pointer;
+            border-radius: 5px;
+            padding: 2px 10px;
         }
 
         button:hover{
             color: rgb(255, 255, 255);
-            transform: scale(1.1);
+            transform: scale(1.03);
             font-weight: 600;
         }
 
         .ya{
-            background-color: rgb(0, 163, 14);
+            background-color: rgb(0, 97, 8);
             color: white;
         }
 
         .tidak{
-            background-color: rgb(255, 38, 38);
+            background-color: rgb(105, 0, 0);
             color: white;
+        }
+
+        #kirim{
+            width: 100%;
+        }
+
+        .home{
+            background-color: rgb(0, 28, 104);
         }
 
         .saran{
@@ -87,10 +106,17 @@
 
 @section('content')
 
-<a href="{{ url()->previous() }}" style="margin-left: 0" class="back">
-    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-    <span class="ml-2">Kembali</span>
-</a>
+<div class="flex">
+    <a href="{{ url()->previous() }}" style="margin-left: 0" class="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <span class="ml-2">Kembali</span>
+    </a>
+
+    <a href="/" style="margin-left: 0" class="back home">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <span class="ml-2">Halaman Pencarian</span>
+    </a>
+</div>
 
 <div class="konten">
     
@@ -137,10 +163,10 @@
             <div class="tengah" id="kotak-saran">
                 <form id="komen" method="POST" action="{{ url('/komen/'. $pertanyaan->id) }}">
                     @csrf
-                    <h4 for="">Jika ada saran atau kritik, <br> Silahkan tulis di bawah ini</h4>
+                    <h4 for="">Jika ada saran, kritik, atau komentar <br> Silahkan tulis di bawah ini</h4>
                     <textarea class="saran" name="masukan" id="" cols="30" rows="10"></textarea>
                     <div>
-                        <button class="ya" type="submit">Kirim</button>
+                        <button id="kirim" class="ya" type="submit">Kirim</button>
                     </div>
                 </form>
             </div>

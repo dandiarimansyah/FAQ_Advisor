@@ -53,15 +53,14 @@
 
 </head>
 <body>
+    @auth
     <div id="navbar">
         <div id="logo">
             <h1>SWIMPRO
-            @auth
                 <span style="color: yellow">ADMIN</span>
-            @endauth
             </h1>
         </div>
-
+        
         <div id="menu">
             @auth
             <li><a href="/">FAQ</a></li>
@@ -72,6 +71,8 @@
             @endauth
         </div>
     </div>
+    @endauth
+
 
     <div class="dalam-konten">
         @yield('content')
