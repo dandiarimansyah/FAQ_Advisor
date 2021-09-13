@@ -101,6 +101,22 @@
             padding: 10px;
         }
 
+        .telegram{
+            background-color: aliceblue;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .telegram a{
+            background-color: #026d9f;
+            color: white;
+            font-weight: 700;
+            padding: 5px 20px;
+            border: 2px solid black;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+
     </style>
 @endsection
 
@@ -160,6 +176,11 @@
                 <h4 style="color: blue">Terima Kasih!</h4>
             </div>
 
+            <div class="telegram tengah">
+                <h4 class="mb-3">Tanya langsung ke Teknikal Advisor EA</h4>
+                <a target="_blank" href="https://telegram.me/advisorswp">Telegram Advisor</a>
+            </div>
+
             <div class="tengah" id="kotak-saran">
                 <form id="komen" method="POST" action="{{ url('/komen/'. $pertanyaan->id) }}">
                     @csrf
@@ -170,6 +191,8 @@
                     </div>
                 </form>
             </div>
+            
+            
         @endguest
 
         @auth
@@ -222,15 +245,27 @@
 <script>
     $(document).ready(function () {
         $('#kotak-saran').hide();
+        $('.telegram').hide();
         $('.thank').hide();
     });
 
-    $(document).on("click",".terjawab", function () {
+    $(document).on("click",".ya", function () {
         $('#bawah').hide();
         $('.thank').fadeIn(800);
         $('.thank').fadeOut(800);
 
         setTimeout(function () {
+            $('#kotak-saran').fadeIn(1200);
+        }, 1500);
+    });
+
+    $(document).on("click",".tidak", function () {
+        $('#bawah').hide();
+        $('.thank').fadeIn(800);
+        $('.thank').fadeOut(800);
+
+        setTimeout(function () {
+            $('.telegram').fadeIn(1200);
             $('#kotak-saran').fadeIn(1200);
         }, 1500);
     });
