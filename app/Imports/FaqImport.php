@@ -19,7 +19,8 @@ class FaqImport implements ToCollection
                 $data->jawaban = $row[1];
                 $data->save();
 
-                $data->kategori()->sync($row[2]);
+                $kategori = preg_split("/\,/", $row[2]);
+                $data->kategori()->sync($kategori);
             }
         }
     }

@@ -178,7 +178,9 @@
 
             <div class="telegram tengah">
                 <h4 class="mb-3">Tanya langsung ke Teknikal Advisor EA</h4>
-                <a target="_blank" href="https://telegram.me/advisorswp">Telegram Advisor</a>
+                <a target="_blank" href="https://telegram.me/advisorswp">
+                    <i class="fa fa-telegram mr-2" aria-hidden="true"></i>
+                    Telegram Advisor</a>
             </div>
 
             <div class="tengah" id="kotak-saran">
