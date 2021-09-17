@@ -13,6 +13,9 @@ use App\Imports\FaqImport;
 use App\Models\Komen;
 use Illuminate\Support\Facades\File;
 
+use App\Exports\TemplateExport;
+use App\Exports\KategoriExport;
+
 
 
 class PertanyaanController extends Controller
@@ -126,5 +129,12 @@ class PertanyaanController extends Controller
         File::delete(public_path('/File Import/' . $namaFile));
 
         return redirect('/admin/faq')->with('toast_success', 'Import Data Berhasil!');
+    }
+
+
+    //EXPORT
+    public function template_excel()
+    {
+        return (new TemplateExport())->download('Template Export.xlsx');
     }
 }

@@ -12,7 +12,7 @@
 
         <div id="tabel_pertanyaan" class="judul_tabel tombol mb-2">
             <a href="/admin/tambah_faq" class="tambah">Tambah Pertanyaan</a>
-            <a loc="{{ asset('/Template/Template Import.xlsx')}}" 
+            <a loc="/admin/template_excel" 
                 href="/admin/import_faq" class="tambah import" id="import_data" 
                 data-toggle="modal" data-target="#import">
                 Import Excel

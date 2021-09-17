@@ -50,6 +50,9 @@ Route::group(['middleware' => ['auth']], function () {
     /*IMPORT*/
     Route::post('/admin/import_faq', [PertanyaanController::class, 'importPertanyaan']);
 
+    /*EXPORT*/
+    Route::get('/admin/template_excel', [PertanyaanController::class, 'template_excel']);
+
 
     /*ADMIN KATEGORI*/
     Route::get('/admin/kategori', [KategoriController::class, 'tampilKategori']);
