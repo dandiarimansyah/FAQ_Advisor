@@ -1,6 +1,24 @@
 @extends('partial')
 
+@section('style')
+<style>
+    .select2-container--default .select2-selection--multiple{
+        height: 40px;
+    }
+</style>    
+@endsection
+
 @section('content')
+    @php
+        $array = [];
+    @endphp
+
+    @foreach ($pertanyaan->kategori as $item)
+        @php
+            array_push($array, $item->id);
+        @endphp
+    @endforeach
+
 
     <h1 class="judul-section tengah">
         <strong>
@@ -28,7 +46,7 @@
                     <textarea class="jawaban" id="summernote" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="">{{ $pertanyaan->jawaban }}</textarea>
                 </div>
             </div>
-            <div class="flex">
+            <div class="flex mt-2">
                 <label for="kategori">Kategori</label>
                 <div class="form-group mb-1">
                     <select id="kategori" name="kategori[]" class="mul-select" multiple="true">
@@ -54,25 +72,18 @@
             $(".mul-select").select2({
                 width: "400px",
                 placeholder: "Pilih Kategori",
-                tags: true,
                 tokenSeparators: ['/',',',';'," "] 
             });
 
-            $('.mul-select').select2('data', {id: '123', text: 'res_data.primary_email'});
+            var data = [];
+            var data = {!!json_encode($array)!!};
+
+            console.log(data);
+
+            $(".mul-select").val(data);
+            $(".mul-select").trigger('change');
 
         })
     </script>
-    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var kategori_terpilih = {!!json_encode($kategori_terpilih)!!};
-            
-            kategori_terpilih.forEach(function(item){
-                $('#kategori option').filter(function(){
-                    return ($(this).val() == item['id'])
-                }).prop('selected', true);
-            })
 
-        });
-    </script>
 @endpush

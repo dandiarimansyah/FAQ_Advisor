@@ -1,5 +1,13 @@
 @extends('partial')
 
+@section('style')
+<style>
+    .select2-container--default .select2-selection--multiple{
+        height: 40px;
+    }
+</style>    
+@endsection
+
 @section('content')
 
         <h1 class="judul-section tengah">
@@ -57,7 +65,6 @@
             $(".mul-select").select2({
             width: "400px",
             placeholder: "Pilih Kategori",
-            tags: true,
             tokenSeparators: ['/',',',';'," "] 
         });
     })

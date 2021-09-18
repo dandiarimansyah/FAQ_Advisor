@@ -72,17 +72,8 @@ class PertanyaanController extends Controller
     {
         $pertanyaan = Pertanyaan::find($idpertanyaan);
         $kategori = Kategori::all();
-        $kategori_terpilih = $pertanyaan->kategori;
 
-        // $pivot = DB::table('faqs_kategori')->where('faqs_id', $idpertanyaan)->get();
-        // $array = array();
-        // foreach ($pivot as $key => $k) {
-        //     $array[] = $k->kategori_id;
-        // }
-
-        // $kategories = Kategori::whereIn('id', $array)->get();
-
-        return view('pertanyaan_edit', compact('pertanyaan', 'kategori', 'kategori_terpilih'));
+        return view('pertanyaan_edit', compact('pertanyaan', 'kategori'));
     }
 
     public function editPertanyaan(Request $request, $idpertanyaan)
