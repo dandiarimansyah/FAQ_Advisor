@@ -32,7 +32,7 @@ class KategoriController extends Controller
 	{
 
 		$request->validate([
-			'kategori' => 'required',
+			'kategori' => 'required|unique:App\Models\Kategori,kategori,' . $idkategori,
 		]);
 		$kategori = Kategori::where('id', $idkategori)
 			->update([
