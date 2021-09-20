@@ -366,8 +366,9 @@ body {
 
 .box-filter {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 8px 20px;
     width: 510px;
     margin: 0 auto;
     text-align: justify;

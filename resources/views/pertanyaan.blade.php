@@ -25,7 +25,7 @@
                     <tr>
                         <th width="2%">No</th>
                         <th width="20%">Pertanyaan</th>
-                        <th width="20%">Jawaban</th>
+                        {{-- <th width="20%">Jawaban</th> --}}
                         <th width="10%">Kategori</th>
                         <th width="9%">Tanggal Dibuat</th>
                         <th width="8%">Action</th>
@@ -36,7 +36,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td class="text-justify">{{ $p-> pertanyaan }}</td>
-                            <td class="text-justify">{!! Str::limit($p->jawaban,80) !!} </td>
+                            {{-- <td class="text-justify">{!! Str::limit($p->jawaban,80) !!} </td> --}}
                             {{-- <td class="text-justify">{!! substr($p->jawaban, 0, 80) !!} ....</td> --}}
                             <td>
                                 @foreach ($p->kategori as $kategori)

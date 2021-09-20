@@ -38,7 +38,7 @@ class PertanyaanController extends Controller
         $pertanyaan_terkait = Pertanyaan::latest()->where('id', '<>', $idpertanyaan)
             ->whereHas('kategori', function ($q) use ($kategori_terpilih) {
                 $q->whereIn('kategori_id', $kategori_terpilih);
-            })->get();
+            })->take(20)->get();
 
         return view('pertanyaan_lihat', compact('pertanyaan', 'kategori_terpilih', 'komen', 'pertanyaan_terkait'));
     }

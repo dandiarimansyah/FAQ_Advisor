@@ -19,7 +19,7 @@ class PencarianController extends Controller
         if (request('pilih_kategori')) {
             $pilih_kategori = $request->pilih_kategori;
 
-            $faq = Pertanyaan::latest()->whereHas('kategori', function ($q) use ($pilih_kategori) {
+            $faq = Pertanyaan::whereHas('kategori', function ($q) use ($pilih_kategori) {
                 $q->whereIn('kategori_id', $pilih_kategori);
             });
 
@@ -30,9 +30,9 @@ class PencarianController extends Controller
                     $status = false;
                 }
             }
-            $faq = $faq->get();
+            $faq = $faq->take(15)->orderBy('like', 'desc')->get();
         } else if (request('search')) {
-            $faq = Pertanyaan::latest()->filter(request(['search']))->get();
+            $faq = Pertanyaan::filter(request(['search']))->take(15)->orderBy('like', 'desc')->get();
 
             if ($faq->count() <= 0) {
                 $status = false;
