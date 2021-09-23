@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\File;
 use App\Exports\TemplateExport;
 use App\Exports\KategoriExport;
 
-
+use Path\To\DOMDocument;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PertanyaanController extends Controller
 {
@@ -57,13 +58,41 @@ class PertanyaanController extends Controller
             'pertanyaan' => 'required',
             'jawaban' => 'required',
         ]);
-        // dd($request->kategori);
+
+        //Upload Image Summernote
+        $storage = "storage/content";
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($request->jawaban, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+        libxml_clear_errors();
+        $images = $dom->getElementsByTagName('img');
+        foreach ($images as $img) {
+            $src = $img->getAttribute('src');
+
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                $mimetype = $groups['mime'];
+                $fileNameContent = uniqid();
+                $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
+
+                $filepath = ("$storage/$fileNameContentRand.$mimetype");
+                $image = Image::make($src)
+                    ->encode($mimetype, 100)
+                    ->save(public_path($filepath));
+
+                $new_src = asset($filepath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+                $img->setAttribute('class', 'img-responsive');
+            }
+        }
+
         $pertanyaan = new Pertanyaan();
         $pertanyaan->pertanyaan = $request->pertanyaan;
-        $pertanyaan->jawaban = $request->jawaban;
-
-        // dd($pertanyaan->pengarang());
+        // $pertanyaan->jawaban = $request->jawaban;
+        $pertanyaan->jawaban = $dom->saveHTML();
         $pertanyaan->save();
+
         $pertanyaan->kategori()->sync($request->kategori);
         return redirect('/admin/faq');
     }
@@ -83,12 +112,39 @@ class PertanyaanController extends Controller
             'jawaban' => 'required',
         ]);
 
-        // dd($request->all());
+        //Upload Image Summernote
+        $storage = "storage/content";
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($request->jawaban, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
+        libxml_clear_errors();
+        $images = $dom->getElementsByTagName('img');
+        foreach ($images as $img) {
+            $src = $img->getAttribute('src');
+
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                $mimetype = $groups['mime'];
+                $fileNameContent = uniqid();
+                $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
+
+                $filepath = ("$storage/$fileNameContentRand.$mimetype");
+                $image = Image::make($src)
+                    ->encode($mimetype, 100)
+                    ->save(public_path($filepath));
+
+                $new_src = asset($filepath);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $new_src);
+                $img->setAttribute('class', 'img-responsive');
+            }
+        }
 
         $pertanyaan = Pertanyaan::where('id', $idpertanyaan)
             ->update([
                 'pertanyaan' => $request->get('pertanyaan'),
-                'jawaban' => $request->get('jawaban'),
+                // 'jawaban' => $request->get('jawaban'),
+                'jawaban' => $dom->saveHTML(),
             ]);
 
 
