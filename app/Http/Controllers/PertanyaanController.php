@@ -59,8 +59,22 @@ class PertanyaanController extends Controller
             'jawaban' => 'required',
         ]);
 
+        $pertanyaan = new Pertanyaan();
+        $pertanyaan->pertanyaan = $request->pertanyaan;
+        $pertanyaan->jawaban = 'sementara';
+        // $pertanyaan->jawaban = $dom->saveHTML();
+        $pertanyaan->save();
+        $id_new = $pertanyaan->id;
+
+        $pertanyaan->kategori()->sync($request->kategori);
+
+
         //Upload Image Summernote
-        $storage = "storage/content";
+        $storage = "storage/Images/" . $id_new;
+
+        $path = public_path($storage);
+        File::makeDirectory($path, $mode = 0777, true, true);
+
         $dom = new \DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($request->jawaban, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
@@ -76,6 +90,8 @@ class PertanyaanController extends Controller
                 $fileNameContentRand = substr(md5($fileNameContent), 6, 6) . '_' . time();
 
                 $filepath = ("$storage/$fileNameContentRand.$mimetype");
+                // dd($filepath);
+
                 $image = Image::make($src)
                     ->encode($mimetype, 100)
                     ->save(public_path($filepath));
@@ -87,13 +103,11 @@ class PertanyaanController extends Controller
             }
         }
 
-        $pertanyaan = new Pertanyaan();
-        $pertanyaan->pertanyaan = $request->pertanyaan;
-        // $pertanyaan->jawaban = $request->jawaban;
-        $pertanyaan->jawaban = $dom->saveHTML();
-        $pertanyaan->save();
+        $ubah = Pertanyaan::where('id', $id_new)
+            ->update([
+                'jawaban' => $dom->saveHTML(),
+            ]);
 
-        $pertanyaan->kategori()->sync($request->kategori);
         return redirect('/admin/faq');
     }
 
@@ -113,7 +127,9 @@ class PertanyaanController extends Controller
         ]);
 
         //Upload Image Summernote
-        $storage = "storage/content";
+        // $storage = "storage/content";
+        $storage = "storage/Images/" . $idpertanyaan;
+
         $dom = new \DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($request->jawaban, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NOIMPLIED);
@@ -143,10 +159,9 @@ class PertanyaanController extends Controller
         $pertanyaan = Pertanyaan::where('id', $idpertanyaan)
             ->update([
                 'pertanyaan' => $request->get('pertanyaan'),
-                // 'jawaban' => $request->get('jawaban'),
                 'jawaban' => $dom->saveHTML(),
+                // 'jawaban' => $request->get('jawaban'),
             ]);
-
 
         $pertanyaan2 = Pertanyaan::find($idpertanyaan);
         $pertanyaan2->kategori()->sync($request->kategori);
@@ -157,7 +172,12 @@ class PertanyaanController extends Controller
     public function hapusPertanyaan($idpertanyaan)
     {
         $pertanyaan = Pertanyaan::find($idpertanyaan);
+        $path = public_path('storage/Images/' . $idpertanyaan);
+
         if ($pertanyaan) {
+            if (File::exists($path)) {
+                File::deleteDirectory($path);
+            }
             $pertanyaan->delete();
         }
 
