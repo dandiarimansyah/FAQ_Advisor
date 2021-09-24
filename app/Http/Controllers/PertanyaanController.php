@@ -108,7 +108,7 @@ class PertanyaanController extends Controller
                 'jawaban' => $dom->saveHTML(),
             ]);
 
-        return redirect('/admin/faq');
+        return redirect('/admin/faq')->with("tertambah", "Berhasil Dihapus");
     }
 
     public function tampilEditPertanyaan($idpertanyaan)
@@ -166,7 +166,7 @@ class PertanyaanController extends Controller
         $pertanyaan2 = Pertanyaan::find($idpertanyaan);
         $pertanyaan2->kategori()->sync($request->kategori);
 
-        return redirect('/admin/faq');
+        return redirect('/admin/faq')->with("update", "Berhasil Dihapus");
     }
 
     public function hapusPertanyaan($idpertanyaan)
@@ -181,7 +181,7 @@ class PertanyaanController extends Controller
             $pertanyaan->delete();
         }
 
-        return back();
+        return back()->with("terhapus", "Berhasil Dihapus");
     }
 
 

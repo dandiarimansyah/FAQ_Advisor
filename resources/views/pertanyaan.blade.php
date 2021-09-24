@@ -2,6 +2,19 @@
 
 @section('content')
 
+@if (session('terhapus'))
+    <div id="terhapus" data-terhapus="{{ session('terhapus') }}"></div>
+@endif
+
+@if (session('update'))
+    <div id="update" data-update="{{ session('update') }}"></div>
+@endif
+
+@if (session('tertambah'))
+    <div id="tertambah" data-tertambah="{{ session('tertambah') }}"></div>
+@endif
+
+
     <h1 class="judul-section tengah">
         <strong>
             DATA PERTANYAAN JAWABAN
@@ -47,7 +60,7 @@
                             <td class="tombol flex flex-center">
                                 <a href="{{ url('/lihat_faq/'. $p->id) }}" class="lihat">Lihat</a>
                                 <a href="{{ url('/admin/edit_faq/'. $p->id) }}" class="edit">Edit</a>
-                                <a href="{{ url('/admin/hapus_faq/'. $p->id) }}" data-toggle="tooltip" class="hapus">Hapus</a>
+                                <a id="hapus-alert" href="{{ url('/admin/hapus_faq/'. $p->id) }}" data-toggle="tooltip" class="hapus">Hapus</a>
                             </td>
                         </tr>
                     @empty
@@ -106,6 +119,70 @@
         $('#import_form').attr('action', '' + link);
         $('#template_excel').attr('href', '' + loc);
     })
+
+    $(document).on('click','#hapus-alert',function(e){
+        e.preventDefault();
+        let url = $(this).attr('href');
+
+        Swal.fire({
+            title: 'Hapus Pertanyaan?',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Hapus',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = url;
+            }
+        })
+    })
+
+    var terhapus = $('#terhapus').data('terhapus');
+    if(terhapus){
+        Swal.fire({
+            icon: 'success',
+            html: '<strong> </strong>',
+            title: 'Pertanyaan Berhasil Dihapus',
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 3500,
+            timerProgressBar: true,
+            text: terhapus,
+        })
+    }
+
+    var update = $('#update').data('update');
+    if(update){
+        Swal.fire({
+            icon: 'success',
+            html: '<strong> </strong>',
+            title: 'Pertanyaan Berhasil Diedit',
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 3500,
+            timerProgressBar: true,
+            text: update,
+        })
+    }
+
+    var tertambah = $('#tertambah').data('tertambah');
+    if(tertambah){
+        Swal.fire({
+            icon: 'success',
+            html: '<strong> </strong>',
+            title: 'Pertanyaan Berhasil Ditambah',
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 3500,
+            timerProgressBar: true,
+            text: tertambah,
+        })
+    }
 
 </script>
 @endpush
