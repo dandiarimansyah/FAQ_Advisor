@@ -22,32 +22,30 @@
         </a>
 
         <div class="kotak kotak-mini">
-
             <form class="tambah-pertanyaan" method="post" action="">
                 @csrf
-                <div class="flex">
-                	<label for="pertanyaan">Pertanyaan</label>
-                	<div class="form-group mb-1">
+                <div class="flex flex-column flex-wrap form-faq" style="gap:0">
+                    <label for="pertanyaan">Pertanyaan</label>
+                    <div class="input">
                         <textarea class="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value="{{ old('pertanyaan') }}" required> </textarea>
                     </div>
-                </div>
-                <div class="flex">
-                	<label for="jawaban">Jawaban</label>
-                	<div class="form-group mb-1">
+    
+                    <label for="jawaban">Jawaban</label>
+                    <div class="setiap-input" id="answer">
                         <textarea class="jawaban" id="summernote" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="{{ old('jawaban') }}" required> </textarea>
                     </div>
-                </div>
-                <div class="flex">
-                	<label for="kategori">Kategori</label>
-
-                    <div class="form-group">
+    
+                    <label for="kategori">Kategori</label>
+                    <div class="input">
                         <select name="kategori[]" class="mul-select" multiple="true">
                             @foreach ($kategori as $k)
                                 <option value="{{ $k->id }}">{{ $k->kategori }}</option>
                             @endforeach
                         </select>
-                    </div> 
+                    </div>
                 </div>
+
+
                 <div class="form-group mt-4 mb-0" style="text-align: center;">
                     <a class="btn btn-danger" href="/pertanyaan">Batal</a>
                     <button class="btn btn-success" type="submit">Simpan</button>
@@ -66,6 +64,13 @@
             width: "400px",
             placeholder: "Pilih Kategori",
             tokenSeparators: ['/',',',';'," "] 
+        });
+
+        $(document).ready(function(){
+            $('#summernote').summernote({
+                height: 400,
+                popatmouse: true
+            });
         });
     })
     </script>

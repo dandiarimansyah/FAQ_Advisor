@@ -5,20 +5,6 @@
     .select2-container--default .select2-selection--multiple{
         height: 40px;
     }
-    .tambah-pertanyaan .pertanyaan {
-        width: 100%;
-        max-width: 80em;
-        height: 65px;
-    }
-    .input{
-        margin-bottom: 20px;
-    }
-    #answer{
-        max-width: 80em;
-    }
-    label{
-        font-size: 1.2rem;
-    }
 </style>    
 @endsection
 
@@ -79,15 +65,15 @@
     <div class="kotak kotak-mini">
         <form class="tambah-pertanyaan" method="post" action="">
             @csrf
-            <div class="flex flex-column flex-wrap" style="gap:0">
+            <div class="flex flex-column flex-wrap form-faq" style="gap:0">
                 <label for="pertanyaan">Pertanyaan</label>
                 <div class="input">
-                    <textarea class="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value="">{{ $pertanyaan->pertanyaan }}</textarea>
+                    <textarea class="pertanyaan" type="text" name="pertanyaan" placeholder="Masukkan Pertanyaan" value="" required>{{ $pertanyaan->pertanyaan }}</textarea>
                 </div>
 
                 <label for="jawaban">Jawaban</label>
-                <div class="input" id="answer">
-                    <textarea class="jawaban" id="summernote" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="">{{ $pertanyaan->jawaban }}</textarea>
+                <div class="setiap-input" id="answer">
+                    <textarea class="jawaban" id="summernote" type="text" name="jawaban" placeholder="Masukkan Jawaban" value="" required>{{ $pertanyaan->jawaban }}</textarea>
                 </div>
 
                 <label for="kategori">Kategori</label>
@@ -125,6 +111,15 @@
             $(".mul-select").trigger('change');
 
         })
+
+        // SUMMERNOTE
+
+        $(document).ready(function(){
+            $('#summernote').summernote({
+                height: 400,
+                popatmouse: true
+            });
+        });
     </script>
 
 @endpush

@@ -214,6 +214,26 @@ body {
     width: 95%;
 }
 
+.tambah-pertanyaan .pertanyaan {
+    width: 100%;
+    max-width: 80em;
+    height: 65px;
+}
+
+#answer {
+    max-width: 80em;
+}
+
+.setiap-input {
+    margin-bottom: 20px;
+}
+.form-faq label {
+    font-size: 1.2rem;
+}
+.form-faq .input {
+    margin-bottom: 15px;
+}
+
 /*INDEX*/
 #pencarian {
     width: 100%;

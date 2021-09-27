@@ -85,13 +85,6 @@
     <script src="{{ asset('summernote/summernote.min.js')}}"></script>
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('#summernote').summernote({
-                height: 400,
-                popatmouse: true
-            });
-        });
-
         $(document).ready(function () {         
             var table = $('#datatable').DataTable();
         });

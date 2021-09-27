@@ -288,7 +288,6 @@
             data: data,
             dataType: "json",
             success: function (response){
-                console.log(response);
             }
         });
     });
@@ -310,7 +309,6 @@
             data: data,
             dataType: "json",
             success: function (response){
-                console.log(response);
             }
         });
     });
@@ -334,7 +332,6 @@
             data: data,
             dataType: "json",
             success: function (response){
-                console.log(response);
 
                 $('#kotak-saran').fadeOut(500);
 
