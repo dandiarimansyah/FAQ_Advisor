@@ -111,15 +111,7 @@
             $(".mul-select").trigger('change');
 
         })
-
-        // SUMMERNOTE
-
-        $(document).ready(function(){
-            $('#summernote').summernote({
-                height: 400,
-                popatmouse: true
-            });
-        });
+        
     </script>
 
 @endpush

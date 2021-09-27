@@ -65,13 +65,6 @@
             placeholder: "Pilih Kategori",
             tokenSeparators: ['/',',',';'," "] 
         });
-
-        $(document).ready(function(){
-            $('#summernote').summernote({
-                height: 400,
-                popatmouse: true
-            });
-        });
     })
     </script>
 @endpush
