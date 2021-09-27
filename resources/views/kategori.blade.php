@@ -17,10 +17,9 @@
 
         <form method="post" action="">
             @csrf
+            <div class="text-center" id="error" style="color: red; display:block">{{ $errors->first('kategori') }}</div>
             <div class="flex flex-center mt-3">
                 <input class="form-control" id="input_kategori" type="text" name="kategori" placeholder="Masukkan Nama Kategori" value="{{ old('kategori') }}" />
-                <div id="error" style="color: red">{{ $errors->first('kategori') }}</div>
-                
                 <button class="btn btn-primary pb-1 pt-1" type="submit">Tambah</button>
             </div>
         </form>

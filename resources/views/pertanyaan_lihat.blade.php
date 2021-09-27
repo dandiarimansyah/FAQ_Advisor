@@ -13,8 +13,6 @@
             width: fit-content;
         }
 
-
-
         h2{
             font-size: 32px;
             font-weight: 650;
@@ -99,6 +97,7 @@
         .saran{
             width: 500px;
             padding: 10px;
+            height: 88px;
         }
 
         .telegram{
@@ -253,23 +252,23 @@
 
     $(document).on("click",".ya", function () {
         $('#bawah').hide();
-        $('.thank').fadeIn(800);
-        $('.thank').fadeOut(800);
+        $('.thank').fadeIn(400);
+        $('.thank').fadeOut(400);
 
         setTimeout(function () {
-            $('#kotak-saran').fadeIn(1200);
-        }, 1500);
+            $('#kotak-saran').fadeIn(800);
+        }, 800);
     });
 
     $(document).on("click",".tidak", function () {
         $('#bawah').hide();
-        $('.thank').fadeIn(800);
-        $('.thank').fadeOut(800);
+        $('.thank').fadeIn(400);
+        $('.thank').fadeOut(400);
 
         setTimeout(function () {
-            $('.telegram').fadeIn(1200);
-            $('#kotak-saran').fadeIn(1200);
-        }, 1500);
+            $('.telegram').fadeIn(800);
+            $('#kotak-saran').fadeIn(800);
+        }, 800);
     });
 
     $(document).on("click","#like", function (e) {

@@ -9,18 +9,6 @@ use App\Http\Controllers\ResponController;
 use App\Http\Controllers\AuthController;
 
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // PUBLIC
 Route::get('/', [PencarianController::class, 'index']);
 Route::get('/lihat_faq/{idpertanyaan}', [PertanyaanController::class, 'tampilLihatPertanyaan']);
